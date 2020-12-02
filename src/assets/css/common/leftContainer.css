@@ -1,0 +1,92 @@
+.mainContainer{
+    /* background-color: aliceblue; */
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    color: black; 
+}
+.mainView{
+    width: 88%;
+    height: 100%;
+}
+.leftBar{
+    width: 12%;
+    height: 100%;
+    box-shadow: black 0 0 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    color: black;
+}
+.leftBar>div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.leftBar>div:nth-child(1){
+    flex-grow: 1;
+    justify-content: flex-start;
+}
+.leftBar>div:nth-child(2){
+    width: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.leftBar>div:nth-child(2)>div:nth-child(1){
+    width: 100%;
+    height: 4%;
+    box-shadow: black 0 0 5px;
+}
+.leftBar>div:nth-child(2)>div:nth-child(2){
+    width: 100%;
+    height: 46%;
+}
+.leftBar>div:nth-child(2)>img{
+    width: 2rem;
+    cursor: pointer;
+}
+.leftContain>h3{
+    width: 100%;
+    height: 4%;
+    box-shadow: black 0 0 5px;
+    margin: 0;
+    padding: 0;
+    /* border-bottom:#87CEEB 2px dashed; */
+}
+.leftContain>div{
+    width: 100%;
+    padding: 0.5rem;
+    border-bottom: black 1px dashed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.leftContain>div>div{
+    width: 100%;
+    padding: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.leftContain>div>div:nth-child(1){
+    width: 100%;
+    padding: 0.4rem;
+    display: flex;
+    border-bottom: black 1px dashed;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+

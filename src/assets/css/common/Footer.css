@@ -1,0 +1,22 @@
+.footerCss{
+    width: 100vw;
+    height: 4%;
+    background:linear-gradient(to bottom,#2b5d83,#073057) ;
+    border-top: #59cdf7 2px solid;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    color: black;
+    box-shadow: aquamarine 0 0 5px;
+}
+.footerCss>h6:nth-child(1){
+    position: absolute;
+    left: 15px;
+}
+.footerCss>h6:nth-child(3){
+    position: absolute;
+    right: 15px;
+}
+
