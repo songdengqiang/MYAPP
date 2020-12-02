@@ -81,9 +81,9 @@
       </div>
     </div>
     <footer class="footerCss">
-      <h6>KG小组（宋邓强）</h6>
-      <h6>东华大学机械工程智能制造研究所</h6>
-      <h6 >日期：{{times}}</h6>
+      <h5>KG小组（宋邓强）</h5>
+      <h5>东华大学机械工程智能制造研究所</h5>
+      <h5 >日期：{{times}}</h5>
     </footer>
   </div>
 </template>
