@@ -1,0 +1,30 @@
+*{
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+.firstPage{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.firstPage>div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.firstPage>div:nth-child(1){
+    height: 90%;
+}
+.firstPage>div:nth-child(2){
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}

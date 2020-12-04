@@ -6,7 +6,12 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  mounted () {
+    let str = this.$el.baseURI.split('#')[0]
+    this.globelV.pathID = str.split(':')[0] + ':' + str.split(':')[1] + ':' + this.globelV.port
+    console.log(this.globelV.pathID)
+  }
 }
 </script>
 

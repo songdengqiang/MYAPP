@@ -94,6 +94,7 @@ export default {
   name: 'HomePage',
   data () {
     return {
+      times: '223-332-223',
       msg: 'Welcome to Your Vue.js App',
       barHide: true,
       funHide1: false,
@@ -157,12 +158,10 @@ export default {
             break
           }
       }
-
     }
   }
 }
 </script>
-
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 @import url('../assets/css/common/Header');
