@@ -81,9 +81,9 @@
       </div>
     </div>
     <footer class="footerCss">
-      <h5>KG小组（宋邓强）</h5>
-      <h5>东华大学机械工程智能制造研究所</h5>
-      <h5 >日期：{{times}}</h5>
+      <h4>KG小组（宋邓强）</h4>
+      <h4>东华大学机械工程智能制造研究所</h4>
+      <h4 >日期：{{times}}</h4>
     </footer>
   </div>
 </template>
@@ -96,7 +96,7 @@ export default {
     return {
       times: '223-332-223',
       msg: 'Welcome to Your Vue.js App',
-      barHide: true,
+      barHide: false,
       funHide1: false,
       funHide2: false,
       funHide3: false,

@@ -8,21 +8,21 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    color: black; 
+    color: whitesmoke; 
 }
 .mainView{
-    width: 88%;
+    width: 98%;
     height: 100%;
 }
 .leftBar{
-    width: 12%;
+    width: 2rem;
     height: 100%;
     box-shadow: black 0 0 10px;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    color: black;
+    color: whitesmoke;
 }
 .leftBar>div{
     display: flex;

@@ -8,23 +8,195 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
 }
 .firstPage>div{
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 .firstPage>div:nth-child(1){
+    width: 99%;
     height: 90%;
+    flex-direction: row;
 }
 .firstPage>div:nth-child(2){
-    height: 10%;
+    height: 8%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
+}
+.imgStr{
+    width: 95%;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imgSend{
+    width: 5%;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imgSend>img{
+    height: 3rem;
+    width: 3rem;
+    cursor: pointer;
+}
+.imgD1{
+    width: 25%;
+    height: 99%;
+    /* box-shadow: whitesmoke 0 0 5px; */
+    overflow: hidden;
+    perspective: 600px;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.imgD3{
+    width: 25%;
+    height: 99%;
+    /* box-shadow: whitesmoke 0 0 5px; */
+    overflow: hidden;
+    perspective: 600px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.imgD2{
+    width: 50%;
+    height: 100%;
+    /* box-shadow: whitesmoke 0 0 5px; */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.imgD2>div{
+    width: 100%;
+    height: 15%;
+    border: whitesmoke 1px solid;
+    /* box-shadow: whitesmoke 0 0 5px; */
+    /* overflow: hidden; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke;
+    font-weight: bolder;
+    font-family: '微软雅黑';
+    font-size: larger;
+    /* font-style: oblique; */
+    animation: donghua 2s infinite;
+}
+@keyframes donghua{
+    0%{
+        opacity: 1;
+        text-shadow:1vh 1vh 11vh green;
+    }
+    50%{
+        opacity: 0.5;
+        text-shadow:2vh 2vh 11vh red;
+    };
+    100%{
+        opacity: 1;
+        text-shadow:2vh 2vh 11vh yellow;
+    }
+}
+.imgD2>div>div{
+    width: 33%;
+    height: 100%;
+    /* border: whitesmoke 1px solid; */
+    /* box-shadow: whitesmoke 0 0 5px; */
+    /* overflow: hidden; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+}
+.imgD2>div>div>img{
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+}
+.myImg{
+    width: 100%;
+    height: 70%;
+    opacity: 0.8;
+}
+.myImg1{
+   height: 70%;
+   width:95%;
+   transform:rotateY(50deg);
+   transform-origin:right;
+   box-shadow: whitesmoke 0 0 5px;
+   filter: blur(3px);
+   opacity: 0.8;
+}
+.myImg2{
+    height: 70%;
+    width:95%;
+    transform:rotateY(-50deg);
+    transform-origin:left;
+    box-shadow: whitesmoke 0 0 5px;
+    filter: blur(15px);
+    opacity: 0.8;
+ }
+ .chooseImg{
+     font-size: larger;
+     font-weight: bolder;
+     cursor: pointer;
+ }
+ .chooseImg:hover{
+    color: yellowgreen;
+}
+.firstPage>div:nth-child(3){
+    /* width: 20%; */
+    width: 60%;
+    position: fixed;
+    color: yellowgreen;
+    top: 4.5%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+.strss{
+    color: red;
+    width: 3rem;
+    height: 2rem;
+    font-size: larger;
+    font-family: "幼圆";
+    font-weight: bolder;
+    /* opacity: 0; */
+    animation: donghuas 6s infinite;
+}
+@keyframes donghuas{
+    0%{
+        opacity: 1;
+        color: yellowgreen;
+        text-shadow:1vh 1vh 11vh green;
+    }
+    50%{
+        opacity: 1;
+        color: yellowgreen;
+        text-shadow:2vh 2vh 11vh red;
+    };
+    100%{
+        opacity: 1;
+        color: yellow;
+        text-shadow:2vh 2vh 11vh yellow;
+    }
 }
