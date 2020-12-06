@@ -8,7 +8,7 @@
                         <img src="../assets/icon/leftArrow.svg" alt="左箭头" @click="PushImg(1)">
                     </div>
                     <div>
-                        <img src="../assets/icon/grid.svg" alt="扩展" >
+                        <img src="../assets/icon/grid.svg" alt="扩展" @click="pagePush()">
                     </div>
                     <div>
                         <img src="../assets/icon/rightArrow.svg" alt="右箭头" @click="PushImg(2)">
@@ -22,8 +22,8 @@
             <div class = 'imgD3'><img :src="imgPathR" alt="右侧图谱片" class="myImg2"></div>
         </div>
         <div>
-            <div class="imgStr" v-for="imgN in imgStyle" :key="imgN.id">
-                <div class="chooseImg">{{imgN.name}}({{imgN.num}})</div>
+            <div :class="`imgStr imgStr`+imgN.id" v-for="imgN in imgStyle" :key="imgN.id" >
+                <div class="chooseImg" @click="choose(imgN.name, imgN.id)">{{imgN.name}}({{imgN.num}})</div>
             </div>
             <div class="imgSend">
                 <img src="../assets/icon/add.svg" alt="添加">
@@ -35,7 +35,7 @@
     </div>
 </template>
 <script>
-// import * as d3 from 'd3'
+import * as d3 from 'd3'
 import axios from 'axios'
 import commonF from '../assets/js/common'
 export default {
@@ -121,6 +121,15 @@ export default {
                     // _this.PushState = false
                     break
             }
+        },
+        pagePush () {
+            this.$router.push('HomePage/imgGrid')
+        },
+        choose(name, num) {
+            const _this = this
+            d3.selectAll('.imgStr').style('background-color', 'rgb(43,93,131)')
+            d3.select('.imgStr'+num).style('background-color', 'yellowgreen')
+            _this.imgStyleN = name
         }
     },
     watch: {
@@ -142,7 +151,7 @@ export default {
                 _this.imgStyleNum = 0
                 }
                 // console.log(1)
-            },2000)
+            },200)
         },
         imgPath (N, O) {
             const _this = this
@@ -173,6 +182,33 @@ export default {
                     // console.log(2)
                 }, 8000)
             }
+        },
+         imgStyleN (N, O) {
+            const _this = this
+            _this.PushState = true
+            _this.imgPath = ''
+            _this.imgPathL = ''
+            _this.imgPathR = ''
+            _this.imgList = []
+            let pathId = _this.globelV.pathID + '/user/getFuncName'
+            axios.get(pathId).then(function (res) {
+            // _this.imgStyle = res.data
+            for (let i=0; i<res.data.length; i++){
+                if ( res.data[i].name === _this.imgStyleN){
+                    for (let j=0; j<res.data[i].imgS.length; j++) {
+                        res.data[i].imgS[j].imgPath =res.data[i].imgS[j].imgPath
+                        _this.imgList.push(res.data[i].imgS[j])
+                    }
+                }
+            }
+            _this.PushState = true
+            _this.imgPath = _this.globelV.pathID + _this.imgList[_this.imgStyleNum].imgPath
+            _this.imgPathL = _this.globelV.pathID + _this.imgList[_this.imgList.length-1].imgPath
+            _this.imgPathR = _this.globelV.pathID + _this.imgList[_this.imgStyleNum+1].imgPath
+            _this.imgStr =_this.imgList[_this.imgStyleNum].Saying
+            }).catch (function (err) {
+                console.log(err)
+            })
         }
     },
     mounted () {

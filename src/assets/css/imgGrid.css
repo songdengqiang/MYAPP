@@ -1,0 +1,106 @@
+.imgGrid{
+    width: 99%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+.areaD{
+    width: 100%;
+    height: 94%;
+    box-shadow: wheat 0 0 2px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 2rem;
+    /* top: 1rem; */
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: auto;
+}
+.areaS{
+    width: 100%;
+    height: 4%;
+    box-shadow: wheat 0 0 2px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 2rem;
+    /* top: 1rem; */
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.areaS>div:nth-child(1){
+    width: 95%;
+    height: 100%;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.areaS>div:nth-child(1)>div{
+    width: 20%;
+    height: 100%;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.areaS>div:nth-child(1)>div:nth-child(1){
+    background-color: yellowgreen;
+}
+.areaS>div:nth-child(1)>div:hover{
+    color: red;
+}
+.areaS>div:nth-child(2){
+    width: 5%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+.areaS>div:nth-child(2)>img{
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}
+.imgArea{
+    width: 18.8%;
+    height: 30%;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    border: white 1px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+.imgArea:hover{
+    background-color: wheat;
+}
+.imgArea:active{
+    position: fixed;
+    width: 60%;
+    height: 60%;
+    box-shadow: whitesmoke 2px 2px 52px;
+    top: 20%;
+    left:20%;
+}
+.imgArea>img{
+    width: 100%;
+    height: 90%;
+}
+.imgTitle{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}

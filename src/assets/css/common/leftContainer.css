@@ -71,6 +71,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 .leftContain>div>div{
     width: 100%;
@@ -79,6 +80,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 .leftContain>div>div:nth-child(1){
     width: 100%;

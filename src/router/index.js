@@ -27,8 +27,13 @@ export default new Router({
           path: '/',
           name: 'HomePage',
           component: () => import('@/components/firstPage')
-        }
+        },
+        {
+          path: 'imgGrid',
+          name: 'imgGrid',
+          component: () => import('@/components/firstPage/imgGrid'),
+        },
       ]
-    }
+    },
   ]
 })
