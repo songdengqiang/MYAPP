@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="imgInput">
       这是图片录入
   </div>
 </template>
@@ -16,5 +16,5 @@ export default {
 </script>
 
 <style scoped>
-
+@import url('../../assets/css/imgInput');
 </style>
