@@ -38,7 +38,7 @@ export default {
     },
     methods: {
         pagePush () {
-            this.$router.push('/HomePage')
+            this.$router.push({path:'/HomePage'})
         },
         choose(name, num) {
             const _this = this

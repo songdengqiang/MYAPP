@@ -40,10 +40,10 @@
             <div>
                 <div class="leftBar">
                     <ul class="leftBarUl">
-                        <li>图片的录入</li>
-                        <li>图片类型的录入</li>
-                        <li>图片的分类</li>
-                        <li>名言警句的录入</li>
+                        <li @click="inputPageP('imgInput')">图片的录入</li>
+                        <li @click="inputPageP('styleInput')">图片类型的录入</li>
+                        <li @click="inputPageP('Quotes')">图片的分类</li>
+                        <li @click="inputPageP('imgClassiF')">名言警句的录入</li>
                     </ul>
                 </div>
                 <div class= "rightContent">
@@ -146,7 +146,8 @@ export default {
             }
         },
         pagePush () {
-            this.$router.push('HomePage/imgGrid')
+            // this.$router.push('HomePage/imgGrid')
+            this.$router.push({path:'/HomePage/imgGrid'})
         },
         choose(name, num) {
             const _this = this
@@ -161,6 +162,10 @@ export default {
         deleteInput () {
              const _this = this
             _this.InputDiv = false
+        },
+        inputPageP (pageID) {
+            const _this = this
+            _this.$router.push(pageID)
         }
     },
     watch: {

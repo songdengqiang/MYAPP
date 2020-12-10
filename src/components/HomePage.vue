@@ -92,6 +92,7 @@
 
 <script>
 import * as d3 from 'd3'
+import commF from '../assets/js/common'
 export default {
   name: 'HomePage',
   data () {
@@ -165,6 +166,13 @@ export default {
       const _this = this
       _this.$router.push('HomePage/firstPage')
     }
+  },
+  mounted () {
+    const _this= this
+    _this.times = commF.getTime()
+    setInterval(function () {
+      _this.times = commF.getTime()
+    }, 1000)
   }
 }
 </script>

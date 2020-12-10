@@ -15,7 +15,14 @@ export default new Router({
         {
           path: '/',
           name: 'HomePage',
-          component: () => import('@/components/firstPage')
+          component: () => import('@/components/firstPage'),
+          children: [
+            {
+              path: '/',
+              name: 'imgInput',
+              component: () => import('@/components/firstPage/imgInput')
+            }
+          ]
         }
       ]
     },
@@ -30,6 +37,13 @@ export default new Router({
           path: '/',
           name: 'firstPage',
           component: () => import('@/components/firstPage'),
+          children: [
+            {
+              path: '/',
+              name: 'imgInput',
+              component: () => import('@/components/firstPage/imgInput'),
+            },
+          ]   
         },
         {
           path: 'firstPage',
@@ -38,6 +52,26 @@ export default new Router({
           children: [
             {
               path: '/',
+              name: 'imgInput',
+              component: () => import('@/components/firstPage/imgInput'),
+            },
+            {
+              path: 'styleInput',
+              name: 'styleInput',
+              component: () => import('@/components/firstPage/styleInput'),
+            },
+            {
+              path: 'Quotes',
+              name: 'Quotes',
+              component: () => import('@/components/firstPage/Quotes'),
+            },
+            {
+              path: 'imgClassiF',
+              name: 'imgClassiF',
+              component: () => import('@/components/firstPage/imgClassiF'),
+            },
+            {
+              path: 'imgInput',
               name: 'imgInput',
               component: () => import('@/components/firstPage/imgInput'),
             },
