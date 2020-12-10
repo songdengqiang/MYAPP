@@ -25,12 +25,31 @@
             <div :class="`imgStr imgStr`+imgN.id" v-for="imgN in imgStyle" :key="imgN.id" >
                 <div class="chooseImg" @click="choose(imgN.name, imgN.id)">{{imgN.name}}({{imgN.num}})</div>
             </div>
-            <div class="imgSend">
-                <img src="../assets/icon/add.svg" alt="添加">
+            <div class="imgSend" @click="inputData()">
+                <img src="../assets/icon/add.svg" alt="添加" >
             </div>
         </div>
         <div class="daySayings">
             <div class="strss" v-for="strs in daySaying" :key="strs.id">{{strs}}</div>
+        </div>
+        <div class="InputDiv" v-show="InputDiv">
+            <div>
+                <div class="headerBar">数据的录入</div>
+                <img src="../assets/icon/delete.svg" alt="删除" @click="deleteInput()">
+            </div>
+            <div>
+                <div class="leftBar">
+                    <ul class="leftBarUl">
+                        <li>图片的录入</li>
+                        <li>图片类型的录入</li>
+                        <li>图片的分类</li>
+                        <li>名言警句的录入</li>
+                    </ul>
+                </div>
+                <div class= "rightContent">
+                    <router-view></router-view>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -42,6 +61,7 @@ export default {
     name: 'firstPage',
     data () {
         return {
+            // 页面的整体变量
             imgStr: '我喜欢的图片',
             imgStyleN: '风景',
             SayingList: [],
@@ -59,7 +79,10 @@ export default {
             imgPathR: '',
             num: Number,
             PushState: false,
-            daySaying: []
+            daySaying: [],
+            InputDiv: true
+            // 数据录入界面的变量
+
         }
     },
     methods: {
@@ -130,6 +153,14 @@ export default {
             d3.selectAll('.imgStr').style('background-color', 'rgb(43,93,131)')
             d3.select('.imgStr'+num).style('background-color', 'yellowgreen')
             _this.imgStyleN = name
+        },
+        inputData () {
+            const _this = this
+            _this.InputDiv = true
+        },
+        deleteInput () {
+             const _this = this
+            _this.InputDiv = false
         }
     },
     watch: {
@@ -183,7 +214,7 @@ export default {
                 }, 8000)
             }
         },
-         imgStyleN (N, O) {
+        imgStyleN (N, O) {
             const _this = this
             _this.PushState = true
             _this.imgPath = ''
@@ -209,7 +240,7 @@ export default {
             }).catch (function (err) {
                 console.log(err)
             })
-        }
+        },
     },
     mounted () {
         const _this = this

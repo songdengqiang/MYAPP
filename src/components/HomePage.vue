@@ -70,7 +70,9 @@
           </div>
         </div>
         <div>
-          <div></div>
+          <div>
+            <img src="../assets/icon/Home.svg" alt="主页面" @click="HomePagePush()">
+          </div>
           <div></div>
           <img src="../assets/icon/leftArrow.svg" alt="隐藏按钮" v-show="barHide" @click="disPlay(1)">
           <img src="../assets/icon/rightArrow.svg" alt="展开按钮" v-show="!(barHide)" @click="disPlay(2)">
@@ -158,6 +160,10 @@ export default {
             break
           }
       }
+    },
+    HomePagePush () {
+      const _this = this
+      _this.$router.push('HomePage/firstPage')
     }
   }
 }

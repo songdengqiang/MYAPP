@@ -6,6 +6,7 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+    // 默认目录（一级）
     {
       path: '/',
       name: 'HomePage',
@@ -18,15 +19,29 @@ export default new Router({
         }
       ]
     },
+    // 指定目录（一级）
     {
       path: '/HomePage',
       name: 'HomePage',
       component: () => import('@/components/HomePage'),
+      // 二级目录（）
       children: [
         {
           path: '/',
-          name: 'HomePage',
-          component: () => import('@/components/firstPage')
+          name: 'firstPage',
+          component: () => import('@/components/firstPage'),
+        },
+        {
+          path: 'firstPage',
+          name: 'firstPage',
+          component: () => import('@/components/firstPage'),
+          children: [
+            {
+              path: '/',
+              name: 'imgInput',
+              component: () => import('@/components/firstPage/imgInput'),
+            },
+          ]   
         },
         {
           path: 'imgGrid',

@@ -47,6 +47,11 @@
     height: 4%;
     box-shadow: black 0 0 5px;
 }
+.leftBar>div:nth-child(2)>div:nth-child(1)>img{
+    width: 1.8rem;
+    height: 1.8rem;
+    cursor: pointer;
+}
 .leftBar>div:nth-child(2)>div:nth-child(2){
     width: 100%;
     height: 46%;
