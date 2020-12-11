@@ -16,5 +16,5 @@ export default {
 </script>
 
 <style scoped>
-@import url('../../assets/css/Quotes');
+@import url('../../assets/css/firstPage/Quotes');
 </style>

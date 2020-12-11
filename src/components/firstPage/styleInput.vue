@@ -16,5 +16,5 @@ export default {
 </script>
 
 <style scoped>
-@import url('../../assets/css/styleInput');
+@import url('../../assets/css/firstPage/styleInput');
 </style>

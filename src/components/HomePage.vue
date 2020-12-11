@@ -164,7 +164,7 @@ export default {
     },
     HomePagePush () {
       const _this = this
-      _this.$router.push('HomePage/firstPage')
+      _this.$router.push({path: '/HomePage/firstPage'})
     }
   },
   mounted () {

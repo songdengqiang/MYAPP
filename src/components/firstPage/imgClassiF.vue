@@ -16,5 +16,5 @@ export default {
 </script>
 
 <style scoped>
-@import url('../../assets/css/imgClassiF');
+@import url('../../assets/css/firstPage/imgClassiF');
 </style>

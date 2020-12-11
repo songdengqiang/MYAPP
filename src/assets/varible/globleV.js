@@ -1,4 +1,4 @@
-const pathID = 'http://192.168.31.126:8888'
+const pathID = 'http://10.206.185.177:8888'
 const port = '8888'
 
 export default {

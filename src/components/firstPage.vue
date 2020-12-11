@@ -165,7 +165,7 @@ export default {
         },
         inputPageP (pageID) {
             const _this = this
-            _this.$router.push(pageID)
+            _this.$router.push({path: '/HomePage/firstPage/' + pageID})
         }
     },
     watch: {
