@@ -80,7 +80,7 @@ export default {
             num: Number,
             PushState: false,
             daySaying: [],
-            InputDiv: true
+            InputDiv: false
             // 数据录入界面的变量
 
         }

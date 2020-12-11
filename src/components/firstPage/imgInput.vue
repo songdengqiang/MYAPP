@@ -95,7 +95,7 @@ export default {
                     headers: {'Content-Type': 'multipart/form-data'}
                 }
                 axios.post(_this.globelV.pathID + '/user/postImgData', params, config).then(res => {
-                    console.log(res.data)
+                    _this.errData = res.data
                 }).catch(function () {
                     console.log('上传失败！')
                 }) 
