@@ -45,18 +45,26 @@ export default {
     data () {
         return {
             errData: '上传失败,请重新上传！',
-            imgStyles: ['风景', '人物', '汽车', '照片'],
+            imgStyles: [],
+            statas: 0,
             imgStyle: '',
             displays: false,
-            imgName: '',
-            imgSaying: '',
+            imgName: '百度卡通图片',
+            imgSaying: '静心、修心、放心！',
             imgfile: null
         }
     },
     methods: {
         display (num) {
             const _this = this
-             _this.displays = true
+            if (_this.statas === 0) {
+                 _this.displays = true
+                 _this.statas = 1
+             } else {
+                 _this.displays = false
+                 _this.statas = 0
+             }
+             
         },
         displayss (strs) {
              const _this = this
@@ -66,7 +74,7 @@ export default {
         showImg () {
             const _this = this
             var file = this.$refs.img;
-            _this.imgfile = file
+            _this.imgfile = file.files[0]
             var reader = new FileReader();
             reader.readAsDataURL(file.files[0]);
             console.log(file.files[0])
@@ -86,11 +94,13 @@ export default {
         sendImg () {
             const _this = this
             if (_this.beforeAvatarUpload(_this.imgfile)) {
-                console.log('dfsds')
+                // console.log(_this.imgfile.file)
                 let params = new FormData()
-                params.append('file', _this.imgfile)
-                params.append('chunk', '0')
-                console.log(params.get('file')) // FormData私有类对象，访问不到，可以通过get判断值是否传进去
+                params.append('img', _this.imgfile)
+                params.append('Saying', _this.imgSaying)
+                params.append('name', _this.imgName)
+                params.append('style', _this.imgStyle)
+                console.log(params) // FormData私有类对象，访问不到，可以通过get判断值是否传进去
                 let config = {
                     headers: {'Content-Type': 'multipart/form-data'}
                 }
@@ -102,7 +112,19 @@ export default {
             }
 
         }
+    },
+    mounted () {
+        const _this = this
+        let pathId = _this.globelV.pathID + '/user/getFuncName'
+        axios.get(pathId).then(function (res) {
+            const styles = []
+            for (let i=0; i<res.data.length; i++){
+                styles.push(res.data[i].name)
+            }
+            _this.imgStyles = styles
+        })
     }
+
 }
 </script>
 

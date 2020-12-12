@@ -162,6 +162,7 @@ export default {
         deleteInput () {
              const _this = this
             _this.InputDiv = false
+            _this.$router.push({path:'/HomePage/firstPage'})
         },
         inputPageP (pageID) {
             const _this = this
