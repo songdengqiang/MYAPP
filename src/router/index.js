@@ -46,6 +46,18 @@ export default new Router({
           ]   
         },
         {
+          path: 'calculator',
+          name: 'calculator',
+          component: () => import('@/components/calculator'),
+          children: [
+            {
+              path: '/',
+              name: 'imgInput',
+              component: () => import('@/components/firstPage/imgInput'),
+            },
+          ]   
+        },
+        {
           path: 'firstPage',
           name: 'firstPage',
           component: () => import('@/components/firstPage'),

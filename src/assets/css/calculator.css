@@ -1,0 +1,241 @@
+.calculator{
+    width: 98%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.calculator>div{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.calculatorView{
+    width: 40%;
+    height: 98%;
+    /* background-color: cornsilk; */
+    box-shadow: black 0 0 10px;
+    border-radius: 10px;
+}
+.calculatorView>div:nth-child(1){
+    background-color: #FFFFF0;
+    width: 98%;
+    height: 20%;
+    border: black 1px solid;
+    margin-top: 1%;
+    border-radius: 10px;
+    color: black;
+    font-size: larger;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.record{
+    width: 95%;
+    height: 75%;
+    border-bottom: black 2px dashed;
+}
+.resultC{
+    width: 100%;
+    height: 25%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: '宋体';
+    font-size: 1.8rem;
+}
+.record>textarea{
+    width: 95%;
+    height: 90%;
+    background-color: #FFFFF0;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: '宋体';
+    font-size: 2rem;
+}
+.calculatorView>div:nth-child(2){
+    /* background-color: #FFFFF0; */
+    width: 99%;
+    height: 8%;
+    /* border: black 1px dashed; */
+    margin-top: 1%;
+    border-radius: 10px;
+    color: black;
+    font-size: larger;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.calculatorView>div:nth-child(2)>span{
+    width: 20%;
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.calculatorView>div:nth-child(2)>input{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    font-family: '宋体';
+    font-size: 1.5rem;
+}
+.calculatorView>div:nth-child(2)>button{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    margin-left: 5px;
+    font-family: '宋体';
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.calculatorView>div:nth-child(3){
+    /* background-color: #FFFFF0; */
+    width: 99%;
+    height: 8%;
+    /* border: black 1px dashed; */
+    margin-top: 1%;
+    border-radius: 10px;
+    color: black;
+    font-size: larger;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.calculatorView>div:nth-child(3)>button{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    margin-left: 5px;
+    font-family: '宋体';
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.calculatorView>div:nth-child(4){
+    /* background-color: #FFFFF0; */
+    width: 99%;
+    height: 60%;
+    /* border: black 1px dashed; */
+    margin-top: 1%;
+    border-radius: 10px;
+    color: black;
+    font-size: larger;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.keyboard{
+    width: 65%;
+    height: 99%;
+    border-right: black 1px dashed;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+.keyboard1{
+    width: 35%;
+    height: 99%;
+    border-right: black 1px dashed;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.keyboard>div{
+    width: 15%;
+    height: 15%;
+    margin-right: 12%;
+    box-shadow: wheat 0 0 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    cursor: pointer;
+}
+.keyboard1>div{
+    width: 35%;
+    height: 15%;
+    margin-left: 10%;
+    box-shadow: black 0 0 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    cursor: pointer;
+}
+.keyboard1>div:nth-child(9){
+    width: 80%;
+}
+.keyboard>div:hover{
+    background-color: yellowgreen;
+}
+.keyboard1>div:hover{
+    background-color: yellowgreen;
+}
+
+/* 控制面板 */
+.calculatorControl{
+    width: 59%;
+    height: 98%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1%;
+}
+.calculatorControl>div:nth-child(1){
+    width: 100%;
+    height: 5%;
+    box-shadow: black 0 0 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 1%;
+}
+.ControlC{
+    width: 15%;
+    height: 85%;
+    background-color: #5F9EA0;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-family: "微软雅黑";
+    font-weight: bolder;
+    margin-left: 1%;
+}

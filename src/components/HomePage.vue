@@ -59,8 +59,8 @@
           <h3>功能菜单的选择</h3>
           <div @click="funDisplay(1)">
             <div>常用小功能</div>
-            <div v-show="funHide1">计算器</div>
-            <div v-show="funHide1">颜色表</div>
+            <div v-show="funHide1" @click="HomePagePush(2)">计算器</div>
+            <div v-show="funHide1" @click="HomePagePush(3)">颜色表</div>
           </div>
           <div @click="funDisplay(2)">
             <div>绘图功能</div>
@@ -71,7 +71,7 @@
         </div>
         <div>
           <div>
-            <img src="../assets/icon/Home.svg" alt="主页面" @click="HomePagePush()">
+            <img src="../assets/icon/Home.svg" alt="主页面" @click="HomePagePush(1)">
           </div>
           <div></div>
           <img src="../assets/icon/leftArrow.svg" alt="隐藏按钮" v-show="barHide" @click="disPlay(1)">
@@ -162,10 +162,18 @@ export default {
           }
       }
     },
-    HomePagePush () {
+    HomePagePush (num) {
       const _this = this
-      _this.$router.push({path: '/HomePage/firstPage'})
-    }
+      switch (num) {
+        case 1:
+          _this.$router.push({path: '/HomePage/firstPage'})
+          break
+        case 2:
+          _this.$router.push({path: '/HomePage/calculator'})
+          break
+      }
+      
+    },
   },
   mounted () {
     const _this= this
