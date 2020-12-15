@@ -1,5 +1,5 @@
 import * as d3 from 'd3'
-import { zlCalculatorZl } from 'zl_calculator_zl'
+import { zl_calculator_zl } from 'zl_calculator_zl'
 const commonF = {
   // 获取实时时间
   getTime: () => {
@@ -7,8 +7,8 @@ const commonF = {
     return strictIsoParse(new Date())
   },
   // 可做数字（包含小数和整数）间的加，减，乘，除，括号，取余，等运算
-  calculator: (CalString) => {
-    const res = zlCalculatorZl(CalString)
+  calculators: (CalString) => {
+    const res = zl_calculator_zl(CalString)
     return res
   },
   // 绘制力导向图

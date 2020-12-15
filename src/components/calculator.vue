@@ -34,7 +34,7 @@
               <div @click="stringSplicing('*')">*</div>
               <div @click="stringSplicing('/')">/</div>
               <div @click="stringSplicing('%')">%</div>
-              <div @click="stringSplicing('^')">^</div>
+              <div @click="stringSplicing('**')">**</div>
               <div @click="stringSplicing('(')">(</div>
               <div @click="stringSplicing(')')">)</div>
               <div class="equal" @click="calculator1()">=</div>
@@ -43,10 +43,16 @@
         </div>
         <div class="calculatorControl">
           <div>
-            <div class="ControlC">简单的四则运算</div>
+            <div class="ControlC">科学计算器</div>
             <div class="ControlC">进制运算</div>
             <div class="ControlC">特殊运算</div>
             <div class="ControlC">待补充</div>
+          </div>
+          <div class="keyboard2">
+            <div @click="stringSplicing('sin(')">sin</div>
+            <div @click="stringSplicing('cos(')">cos</div>
+            <div @click="stringSplicing('tan(')">tan</div>
+            <div @click="stringSplicing('4')">4</div>
           </div>
         </div>
     </main>
@@ -56,7 +62,7 @@
 // import api from '@/assets/Js/home/home'
 // import axios from 'axios'
 // import * as d3 from 'd3'
-// import commonF from '@/assets/Js/common/common'
+import commonF from '../assets/js/common'
 export default {
   name: 'calculator',
   data () {
@@ -81,11 +87,15 @@ export default {
     },
     calculator1 () {
       const _this = this
-      _this.calculatorResult = commonF.calculator(_this.cal_string)
+      _this.calculatorResult = commonF.calculators(_this.cal_string)
     },
     stringSplicing (num) {
       const _this = this
-      _this.cal_string = _this.cal_string + num
+      if (num === '**') {
+        _this.cal_string = _this.cal_string + '*' + _this.cal_string
+      } else {
+        _this.cal_string = _this.cal_string + num
+      }
     },
     Remove () {
       const _this = this

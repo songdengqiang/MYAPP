@@ -169,7 +169,12 @@ export default {
           _this.$router.push({path: '/HomePage/firstPage'})
           break
         case 2:
+          _this.funNum1 = 0
           _this.$router.push({path: '/HomePage/calculator'})
+          break
+        case 3:
+          _this.funNum1 = 0
+          // _this.$router.push({path: '/HomePage/calculator'})
           break
       }
       
