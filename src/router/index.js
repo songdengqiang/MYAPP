@@ -58,6 +58,11 @@ export default new Router({
           ]   
         },
         {
+          path: 'colorGrid',
+          name: 'colorGrid',
+          component: () => import('@/components/colorGrid'), 
+        },
+        {
           path: 'firstPage',
           name: 'firstPage',
           component: () => import('@/components/firstPage'),

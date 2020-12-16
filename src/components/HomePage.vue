@@ -174,7 +174,7 @@ export default {
           break
         case 3:
           _this.funNum1 = 0
-          // _this.$router.push({path: '/HomePage/calculator'})
+          _this.$router.push({path: '/HomePage/colorGrid'})
           break
       }
       
