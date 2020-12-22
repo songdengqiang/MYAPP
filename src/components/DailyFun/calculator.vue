@@ -62,7 +62,7 @@
 // import api from '@/assets/Js/home/home'
 // import axios from 'axios'
 // import * as d3 from 'd3'
-import commonF from '../assets/js/common'
+import commonF from '../../assets/js/common'
 export default {
   name: 'calculator',
   data () {
@@ -110,5 +110,5 @@ export default {
 
 <style scoped >
 /* 主体内容的设置 */
-@import url("../assets/Css/calculator.css");
+@import url("../../assets/Css/calculator.css");
 </style>

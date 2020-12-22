@@ -33,6 +33,7 @@ export default new Router({
       component: () => import('@/components/HomePage'),
       // 二级目录（）
       children: [
+        // 主页面的路由
         {
           path: '/',
           name: 'firstPage',
@@ -44,23 +45,6 @@ export default new Router({
               component: () => import('@/components/firstPage/imgInput'),
             },
           ]   
-        },
-        {
-          path: 'calculator',
-          name: 'calculator',
-          component: () => import('@/components/calculator'),
-          children: [
-            {
-              path: '/',
-              name: 'imgInput',
-              component: () => import('@/components/firstPage/imgInput'),
-            },
-          ]   
-        },
-        {
-          path: 'colorGrid',
-          name: 'colorGrid',
-          component: () => import('@/components/colorGrid'), 
         },
         {
           path: 'firstPage',
@@ -98,6 +82,56 @@ export default new Router({
           path: 'imgGrid',
           name: 'imgGrid',
           component: () => import('@/components/firstPage/imgGrid'),
+        },
+        // 日常小功能路由
+        {
+          path: 'calculator',
+          name: 'calculator',
+          component: () => import('@/components/DailyFun/calculator'),
+          children: [
+            {
+              path: '/',
+              name: 'imgInput',
+              component: () => import('@/components/firstPage/imgInput'),
+            },
+          ]   
+        },
+        {
+          path: 'colorGrid',
+          name: 'colorGrid',
+          component: () => import('@/components/DailyFun/colorGrid'), 
+        },
+        {
+          path: 'schedule',
+          name: 'schedule',
+          component: () => import('@/components/DailyFun/schedule'), 
+        },
+        {
+          path: 'memo',
+          name: 'memo',
+          component: () => import('@/components/DailyFun/memo'), 
+        },
+        // 这是绘制功能的路由
+        {
+          path: 'barChart',
+          name: 'barChart',
+          component: () => import('@/components/drawPage/barChart'),
+        },
+        {
+          path: 'lineChart',
+          name: 'lineChart',
+          component: () => import('@/components/drawPage/lineChart'),
+        },
+        {
+          path: 'pieChart',
+          name: 'pieChart',
+          component: () => import('@/components/drawPage/pieChart'),
+        },
+        //这是知识图谱原型系统的路由
+        {
+          path: 'protoSys',
+          name: 'protoSys',
+          component: () => import('@/components/KgPage/protoSys'),
         },
       ]
     },

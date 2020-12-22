@@ -1,0 +1,119 @@
+.protoSys{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.protoSys>div{
+    height: 100%;
+}
+.kgLeftBar{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.kgLeftBar>div:nth-child(1){
+    width: 90%;
+    height: 4%;
+    color: whitesmoke;
+    font-weight: bolder;
+    font-size: 1.6rem;
+    font-family: '宋体';
+    /* background-color: Aquamarine; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* box-shadow: Aquamarine 0 0 1px; */
+    border-radius: 0.5rem;
+}
+.kgLeftBar>div:nth-child(2){
+    width: 92%;
+    height: 24%;
+    color: whitesmoke;
+    font-weight: bolder;
+    font-size: 1rem;
+    font-family: '宋体';
+    /* background-color: Aquamarine; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-shadow: Aquamarine 0 0 1px;
+    border-radius: 0.5rem;
+}
+.pieChart{
+    width: 90%;
+    height: 100%;
+    /* background-color: #B0E0E6; */
+}
+.kgChoose{
+    width: 10%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 4px;
+}
+.kgChoose>p{
+    cursor: pointer;
+}
+.kgChoose>p:nth-child(1){
+    cursor: auto;
+}
+.kgLeftBar>div:nth-child(3){
+    width: 92%;
+    height: 24%;
+    color: whitesmoke;
+    font-weight: bolder;
+    font-size: 1rem;
+    font-family: '宋体';
+    /* background-color: Aquamarine; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-shadow: Aquamarine 0 0 1px;
+    border-radius: 0.5rem;
+}
+.kgLeftBar>div:nth-child(4){
+    width: 92%;
+    height: 24%;
+    color: whitesmoke;
+    font-weight: bolder;
+    font-size: 1rem;
+    font-family: '宋体';
+    /* background-color: Aquamarine; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-shadow: Aquamarine 0 0 1px;
+    border-radius: 0.5rem;
+}
+.kgLeftBar>div:nth-child(5){
+    width: 92%;
+    height: 24%;
+    color: whitesmoke;
+    font-weight: bolder;
+    font-size: 1rem;
+    font-family: '宋体';
+    /* background-color: Aquamarine; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-shadow: Aquamarine 0 0 1px;
+    border-radius: 0.5rem;
+}
+.kgCenterBar{
+    width: 60%;
+}
+.kgRightBar{
+    width: 20%;
+}

@@ -130,5 +130,5 @@ export default {
 </script>
 
 <style scoped>
-@import url('../assets/css/colorGrid.css');
+@import url('../../assets/css/colorGrid.css');
 </style>>

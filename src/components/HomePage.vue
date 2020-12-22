@@ -58,15 +58,21 @@
         <div v-show="barHide" class="leftContain">
           <h3>功能菜单的选择</h3>
           <div @click="funDisplay(1)">
-            <div>常用小功能</div>
-            <div v-show="funHide1" @click="HomePagePush(2)">计算器</div>
-            <div v-show="funHide1" @click="HomePagePush(3)">颜色表</div>
+            <div style="color:DarkOrange"><strong>常用小功能</strong></div>
+            <div v-show="funHide1" @click="HomePagePush(2)" class="nameFun">计算器</div>
+            <div v-show="funHide1" @click="HomePagePush(3)" class="nameFun">颜色表</div>
+            <div v-show="funHide1" @click="HomePagePush(4)" class="nameFun">个人计划</div>
+            <div v-show="funHide1" @click="HomePagePush(5)" class="nameFun">备忘录</div>
           </div>
           <div @click="funDisplay(2)">
-            <div>绘图功能</div>
+            <div style="color:DarkOrange"><strong>绘图功能</strong></div>
+            <div v-show="funHide2" @click="HomePagePush(11)" class="nameFun">绘制条形图</div>
+            <div v-show="funHide2" @click="HomePagePush(12)" class="nameFun">绘制折线图</div>
+            <div v-show="funHide2" @click="HomePagePush(13)" class="nameFun">绘制饼图</div>
           </div>
           <div @click="funDisplay(3)">
-            <div>毕业论文</div>
+            <div style="color:DarkOrange"><strong>毕业论文</strong></div>
+            <div v-show="funHide3" @click="HomePagePush(21)" class="nameFun">知识图谱原型系统</div>
           </div>
         </div>
         <div>
@@ -175,6 +181,30 @@ export default {
         case 3:
           _this.funNum1 = 0
           _this.$router.push({path: '/HomePage/colorGrid'})
+          break
+        case 4:
+          _this.funNum1 = 0
+          _this.$router.push({path: '/HomePage/schedule'})
+          break
+        case 5:
+          _this.funNum1 = 0
+          _this.$router.push({path: '/HomePage/memo'})
+          break
+        case 11:
+          _this.funNum2 = 0
+          _this.$router.push({path: '/HomePage/barChart'})
+          break
+        case 12:
+          _this.funNum2 = 0
+          _this.$router.push({path: '/HomePage/lineChart'})
+          break
+        case 13:
+          _this.funNum2 = 0
+          _this.$router.push({path: '/HomePage/pieChart'})
+          break
+        case 21:
+          _this.funNum3 = 0
+          _this.$router.push({path: '/HomePage/protoSys'})
           break
       }
       
