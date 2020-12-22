@@ -221,9 +221,9 @@ export default {
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import url('../assets/css/common/Header');
+@import url('../assets/css/common/header');
 @import url('../assets/css/common/leftContainer');
-@import url('../assets/css/common/Footer');
+@import url('../assets/css/common/footer');
 .HomePage{
   background-color: #2b5d83;
   width: 100%;
