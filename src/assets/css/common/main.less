@@ -10,13 +10,16 @@
         border-radius: .6rem;
         top: 8%;
         bottom: 5%;
-        opacity: 0.2;
         background-color: white;
         left: 2px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        opacity: 0.2;
+        .aside_text{
+            opacity: 0;
+        }
     }
     .aside_r{
         width: 1rem;
@@ -32,9 +35,18 @@
         justify-content: center;
         align-items: center;
         background-color: white;
+        .aside_text{
+            opacity: 0;
+        }
     }
     aside:hover{
+        transition: 0.5s ;
         width: 10%;
+        opacity: 0.5;
+        .aside_text{
+            transition: 0.5s ;
+            opacity: 1;
+        }
     }
     div{
         width: 96%;

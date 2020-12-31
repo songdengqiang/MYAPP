@@ -11,13 +11,16 @@
   border-radius: 0.6rem;
   top: 8%;
   bottom: 5%;
-  opacity: 0.2;
   background-color: white;
   left: 2px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  opacity: 0.2;
+}
+.c_main .aside_l .aside_text {
+  opacity: 0;
 }
 .c_main .aside_r {
   width: 1rem;
@@ -34,8 +37,17 @@
   align-items: center;
   background-color: white;
 }
+.c_main .aside_r .aside_text {
+  opacity: 0;
+}
 .c_main aside:hover {
+  transition: 0.5s;
   width: 10%;
+  opacity: 0.5;
+}
+.c_main aside:hover .aside_text {
+  transition: 0.5s;
+  opacity: 1;
 }
 .c_main div {
   width: 96%;

@@ -5,8 +5,7 @@
 .LG_container{
     width: 100%;
     height: 100%;
-    background-color: aqua;
-    background-image: url('../img/im_login.jpg');
+    // background-color: aqua;
     background-repeat: repeat;
     background-size: 100%;
     display: flex;
@@ -16,6 +15,21 @@
     header{
         width: 100%;
         height: 8%;
+        .author_icon{
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 1.75rem;
+        }
+        .setting_value{
+            width: 10rem;
+            height: 3.5rem;
+            font-size: 2rem;
+            font-family: '楷体';
+            border-radius: 1.75rem;
+            position: fixed;
+            opacity: 0;
+            cursor: pointer;
+        }
     }
     main{
         width: 100%;
@@ -28,6 +42,13 @@
             width: 50%;
             height: 80%;
             display: flex;
+        }
+        .aside_2{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            color: red;        
         }
     }
     footer{

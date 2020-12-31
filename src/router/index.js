@@ -9,22 +9,22 @@ export default new Router({
     // 默认目录（一级）
     {
       path: '/',
-      name: 'HomePage',
-      component: () => import('@/components/HomePage'),
-      children: [
-        {
-          path: '/',
-          name: 'HomePage',
-          component: () => import('@/components/firstPage'),
-          children: [
-            {
-              path: '/',
-              name: 'imgInput',
-              component: () => import('@/components/firstPage/imgInput')
-            }
-          ]
-        }
-      ]
+      name: 'login',
+      component: () => import('@/components/login'),
+      // children: [
+      //   {
+      //     path: '/',
+      //     name: 'HomePage',
+      //     component: () => import('@/components/firstPage'),
+      //     children: [
+      //       {
+      //         path: '/',
+      //         name: 'imgInput',
+      //         component: () => import('@/components/firstPage/imgInput')
+      //       }
+      //     ]
+      //   }
+      // ]
     },
     // 指定目录（一级）
     {
