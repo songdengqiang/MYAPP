@@ -1,0 +1,24 @@
+.titles {
+  color: white;
+  animation: fontColor 20s infinite;
+}
+@keyframes fontColor {
+  0% {
+    color: white;
+  }
+  20% {
+    color: red;
+  }
+  40% {
+    color: yellow;
+  }
+  60% {
+    color: black;
+  }
+  80% {
+    color: yellow;
+  }
+  100% {
+    color: whitesmoke;
+  }
+}

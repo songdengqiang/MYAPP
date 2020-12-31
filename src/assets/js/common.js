@@ -3,7 +3,7 @@ import { zl_calculator_zl } from 'zl_calculator_zl'
 const commonF = {
   // 获取实时时间
   getTime: () => {
-    var strictIsoParse = d3.timeFormat('%m/%d/%Y-%H:%M:%S')
+    var strictIsoParse = d3.timeFormat('%Y-%m-%d/周%w/%H:%M:%S')
     return strictIsoParse(new Date())
   },
   // 可做数字（包含小数和整数）间的加，减，乘，除，括号，取余，等运算
