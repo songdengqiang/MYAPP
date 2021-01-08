@@ -1,6 +1,6 @@
 .titles {
   color: white;
-  animation: fontColor 20s infinite;
+  animation: fontColor 10s infinite;
 }
 @keyframes fontColor {
   0% {
@@ -19,6 +19,43 @@
     color: yellow;
   }
   100% {
-    color: whitesmoke;
+    color: red;
   }
 }
+.titles1 {
+  color: black;
+  animation: fontColor1 10s infinite;
+}
+.titles_small{
+  color: black;
+  font-size: 1.5rem;
+  font-family: '楷体';
+  padding: 1rem;
+  animation: fontColor1 10s infinite;
+}
+.titles_middle{
+  color: black;
+  font-size: 2rem;
+  font-family: '楷体';
+  padding: 1rem;
+  animation: fontColor1 10s infinite;
+}
+.titles_large{
+  color: black;
+  font-size: 2.5rem;
+  font-family: '楷体';
+  padding: 1rem;
+  animation: fontColor1 10s infinite;
+}
+@keyframes fontColor1 {
+  0% {
+    color: black;
+  }
+  50% {
+    color: red;
+  }
+  100% {
+    color: black;
+  }
+}
+

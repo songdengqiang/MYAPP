@@ -1,4 +1,5 @@
 import * as d3 from 'd3'
+import echarts from 'echarts'
 
 const drawChart = {
     // 绘制饼图

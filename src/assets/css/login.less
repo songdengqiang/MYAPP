@@ -13,6 +13,7 @@
     justify-content: flex-start;
     align-items: center;
     header{
+        position: absolute;
         width: 100%;
         height: 8%;
         .author_icon{
@@ -32,16 +33,16 @@
         }
     }
     main{
+        position: absolute;
+        top: 8%;
         width: 100%;
         height: 87%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
         .mainDiv{
-            width: 50%;
-            height: 80%;
-            display: flex;
+            width: 100%;
+            height: 100%;
+            #li_style{
+                padding: 2.5rem;
+            }
         }
         .aside_2{
             display: flex;
@@ -52,6 +53,8 @@
         }
     }
     footer{
+        position: absolute;
+        top: 95%;
         width: 100%;
         height: 5%;
     }

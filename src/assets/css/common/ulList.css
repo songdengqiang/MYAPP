@@ -1,15 +1,37 @@
 .ulList {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .ulList .ulList_ul {
-  width: 90%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .ulList .ulList_ul .ulList_li {
   border-bottom: 1px solid white;
-  padding: 2rem 0;
+  padding: 1rem 0;
   list-style: none;
   color: white;
   font-size: 2rem;
   font-weight: bolder;
   font-family: "楷体";
+}
+.ulList .ulList_ul .ulList_li .progress_bar {
+  width: 85%;
+  height: 25%;
+  background-color: red;
+  border-radius: 0.2rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 0 4px black;
+}
+.ulList .ulList_ul .ulList_li .finish_bar {
+  height: 100%;
+  background-color: greenyellow;
 }

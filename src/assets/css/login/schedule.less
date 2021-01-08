@@ -1,0 +1,164 @@
+.schedule{
+    border-radius: 1rem;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    background-color: gainsboro;
+    opacity: 0.7;
+    color: black;
+    #plan_list{
+        width: 20%;
+        height: 100%;
+        border-right: black 1px solid;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        overflow: auto;
+        border-radius: 1rem;
+        .ulList_ul{
+            position: relative;
+            left: -2rem;
+            .ulList_li{
+                font-size: 1.5rem;
+                display: flex;
+                flex-direction:column;
+                justify-content: center;
+                align-items: center;
+                .add_img1{
+                    width: 3.8rem;
+                    height: 3.8rem;
+                    padding-left: 1rem;
+                    cursor: pointer;
+                }
+            }
+            .ulList_li:nth-child(1){
+                font-size: 2rem;
+            }
+            .add_img{
+                padding-top: 2rem;
+                width: 5rem;
+                height: 5rem;
+                cursor: pointer;
+            }
+        }
+    }
+    #plan_list::-webkit-scrollbar{
+        width: 0;
+    }
+    .data_input{
+        .titles_middle{
+            list-style: none;
+        }
+        .ulList_ul{
+            margin-left: -3rem;
+            .btn{
+                padding: 0 4rem;
+                margin: -2rem 2rem 2rem 2rem;
+            }
+            .titles{
+                font-size: 2.5rem;
+                font-family: '楷体';
+                list-style: none;
+                padding: 1rem;
+                font-weight: bolder;
+            }
+        }
+    }
+    .today_plan{
+        width: 80%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        .plan_panel{
+            width: 100%;
+            height: 70%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            header{
+                width: 50%;
+                height: 10%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                span{
+                    margin-right: auto;
+                }
+            }
+            .text_style1{
+                font-size: 2rem;
+                font-weight: bolder;
+                font-family: '楷体';
+            }
+            .table_list{
+                width: 98%;
+                height: 85%;
+                overflow: auto;
+                .text_style2{
+                    font-size: 1.5rem;
+                    font-weight: bolder;
+                    font-family: '楷体';
+                }
+                img{
+                    width: 2rem;
+                    height: 2rem;
+                    cursor: pointer;
+                }
+            }
+            .table_list::-webkit-scrollbar{
+                width: 0;
+            }
+            
+        }
+        .plan_description{
+            width: 100%;
+            height: 30%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            .plan_summary{
+                width: 50%;
+                height: 100%;
+                box-shadow: 1px 0px 2px black;
+                .titles1{
+                    font-size: 2rem;
+                    font-weight: bolder;
+                    font-family: '楷体';
+                }
+                .textstyle{
+                    font-size: 1.6rem;
+                    width: 95%;
+                    height: 80%;
+                }
+            }
+            .plan_statistic{
+                width: 50%;
+                height: 100%;
+                box-shadow: 1px 0px 2px black;
+                display: flex;
+                flex-direction: row;
+                .graph_bar{
+                    width: 60%;
+                    height: 100%;
+                    border-right: 1px black dashed;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                 
+                }
+                .graph_pie{
+                    width: 40%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+        }
+    }
+}

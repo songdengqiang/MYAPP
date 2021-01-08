@@ -4,7 +4,9 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import globelV from './assets/varible/globleV'
+import echarts from 'echarts'
 
+Vue.prototype.$echarts = echarts
 Vue.prototype.globelV = globelV
 Vue.config.productionTip = false
 

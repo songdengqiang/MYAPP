@@ -138,7 +138,19 @@ export default new Router({
     {
       path: '/login',
       name: 'login',
-      component: () => import('@/components/login')
+      component: () => import('@/components/login'),
+      children: [
+        {
+          path: 'schedule',
+          name: 'schedule',
+          component: () => import('@/components/DailyFun/schedule'), 
+        },
+        {
+          path: 'colorGrid',
+          name: 'colorGrid',
+          component: () => import('@/components/DailyFun/colorGrid'), 
+        }
+      ]
     }
   ]
 })

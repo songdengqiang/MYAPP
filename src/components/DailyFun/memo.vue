@@ -1,6 +1,6 @@
 <template>
-  <div class="memo">
-      这是备忘录页面
+  <div class="memo" id="memo">
+      fhasjkfhasjkfhkj
   </div>
 </template>
 
@@ -11,5 +11,6 @@ export default {
 </script>
 
 <style scoped>
+@import url('../../assets/css/memo.css');
 
 </style>

@@ -4,8 +4,11 @@
           <nav>
               <ul>
                   <li>电影</li>
-                  <li>颜色表</li>
+                  <li @click="module_choose(2)">颜色表</li>
                   <li>音乐</li>
+                  <li @click="module_choose(4)">个人计划</li>
+                  <li>功能模块</li>
+                  <li>项目</li>
               </ul>
               <ul>
                   <li id="lg_li" v-show="showR">登录</li>
@@ -27,22 +30,35 @@
               </ul>
           </aside>
           <div class="mainDiv">
-              <div class="ulList">
+              <!-- 默认显示内容 -->
+              <div class="ulList" v-show="display">
                   <ul class="ulList_ul">
-                      <li class="ulList_li titles">{{title}}</li>
-                      <li class="ulList_li titles">在一起的时间:{{togethers}}</li>
-                      <li class="ulList_li titles">提示:{{memorial_day}}</li>
-                      <li class="ulList_li titles">{{times}}</li>
-                      <li class="ulList_li titles">{{weathers}}</li>
+                      <li class="ulList_li titles" id="li_style">{{title}}</li>
+                      <li class="ulList_li titles" id="li_style">在一起的时间:{{togethers}}</li>
+                      <li class="ulList_li titles" id="li_style">提示:{{memorial_day}}</li>
+                      <li class="ulList_li titles" id="li_style">{{times}}</li>
+                      <li class="ulList_li titles" id="li_style">{{weathers}}</li>
                   </ul>
               </div>
-            <!-- <hr>
-            <div></div>
-            <hr> -->
+              <!-- 主要的功能界面 -->
+              <div class="moduless" v-show="!display">
+                  <div>
+                      <img src="../assets/icon/delete.svg" alt="关闭" @click="module_choose(0)">
+                  </div>
+                  <div>
+                      <router-view></router-view>
+                  </div>
+              </div>
           </div>
           <aside class="aside_r">右侧悬浮条</aside>
       </main>
       <footer class="c_footer">
+          <ul v-show="!display">
+              <li class="titles">在一起的时间:{{togethers}}</li>
+              <li class="titles">提示:{{memorial_day}}</li>
+              <li class="titles">{{times}}</li>
+              <li class="titles">{{weathers}}</li>
+          </ul>
       </footer>
   </div>
 </template>
@@ -59,18 +75,35 @@ export default {
             togethers: '3年',
             memorial_day: '傻瓜的生日:1月1日',
             times: '2020-12-24-12:43',
+            display:true,
             weathers: '🌤',
-            showR: true,
+            showR: false,
             img_path: require('../assets/img/im_login0.jpg'),
             author_icon: require('../assets/img/im_login11.jpg')
         }
     },
     methods: {
+        module_choose (num) {
+            const _this = this;
+            _this.display = false;
+            switch (num) {
+                case 0:
+                    _this.display = true;
+                    _this.$router.push({path: '/login'})
+                    break;
+                case 2:
+                     _this.$router.push({path: '/login/colorGrid'})
+                     break;
+                case 4:
+                     _this.$router.push({path: '/login/schedule'})
+                     break;
+            }
+        }
     },
     mounted () {
         const _this = this;
         const pathId = _this.globelV.pathID + '/user/weathers'
-        _this.times = commonF.getTime();
+        _this.times = commonF.get_today_time()[0];
         let imgNameIndex = 1;
         //背景图片的切换
         setInterval(() => {
@@ -82,7 +115,7 @@ export default {
         },12000),
         // 时间的刷新
         setInterval(()=>{
-            _this.times = commonF.getTime();
+            _this.times = commonF.get_today_time()[0];
         },1000)
         // 在一起的时间计算
         let todays = new Date();
@@ -97,12 +130,14 @@ export default {
 </script>
 
 <style scoped>
-@import url('../assets/css/common/header.css');
-@import url('../assets/css/common/main.css');
-@import url('../assets/css/common/footer.css');
-@import url('../assets/css/common/ulList.css');
 @import url('../assets/css/common/option.css');
 @import url('../assets/css/common/fontColor.css');
+@import url('../assets/css/common/main.css');
+@import url('../assets/css/common/header.css');
+@import url('../assets/css/common/footer.css');
+@import url('../assets/css/common/ulList.css');
+@import url('../assets/css/common/module.css');
 @import url('../assets/css/login.css');
+
 
 </style>
