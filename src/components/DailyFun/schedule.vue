@@ -86,9 +86,6 @@
           <button class="btn_pro_green" @click="submit_today_plan()">
             今日任务提交
           </button>
-          <button class="btn_pro_green" @click="add_today_plan()">
-            今日任务添加
-          </button>
         </header>
         <div class="table_list">
           <table class="table table-striped">
@@ -128,7 +125,7 @@
                   <img src="../../assets/icon/modify.svg" alt="修改" />
                 </td>
                 <td class="text_style2">
-                  <img src="../../assets/icon/delete.svg" alt="删除" />
+                  <img src="../../assets/icon/delete.svg" alt="删除" @click="delete_today_plan(task,values)" />
                 </td>
               </tr>
             </tbody>
@@ -138,7 +135,7 @@
       <div class="plan_description">
         <div class="plan_summary">
           <header class="titles1">今日计划任务总结：</header>
-          <textarea name="总结" class="titles1 textstyle"></textarea>
+          <textarea name="总结" class="titles1 textstyle" v-model="result_today"></textarea>
         </div>
         <div class="plan_statistic">
           <div class="graph_bar" id="graph_bar">统计图</div>
@@ -165,7 +162,7 @@ export default {
       task_inportant: 3,
       axios_info: "",
       task_list: [],
-      today_data: [
+      example_data: [
         {
           task_name: "学习强国刷积分",
           start_time: "",
@@ -202,6 +199,8 @@ export default {
           progress: "0",
         },
       ],
+      today_data: [],
+      result_today:'',
     };
   },
   methods: {
@@ -356,10 +355,20 @@ export default {
           alert(res.data);
         });
     },
+    // 将代办任务添加到今日任务，添加后将删除这个代办任务
     add_today_plan(value) {
       const _this = this;
       value.statas = false;
-      _this.today_data.push(value);
+      console.log(value)
+      //需要判断今日任务列表中是否存在该条任务
+      if(_this.today_data.indexOf(value)<0){
+        _this.today_data.push(value);
+        console.log(_this.today_data.indexOf(value))
+      }
+      let index = _this.task_list.indexOf(value) //获取本元素的索引值
+      _this.task_list.splice(index,1) //删除本元素
+      axios.post(_this.path_id + '/user/plan/addTaskList',_this.task_list) //提交数据元素给后台
+      axios.post(_this.path_id + '/user/plan/add_today_plan', _this.today_data) //提交今日的数据
     },
     submit_plan(value) {
       const _this = this;
@@ -388,19 +397,23 @@ export default {
     },
     submit_today_plan() {
       const _this = this;
-      axios
-        .post(_this.path_id + "/user/plan/add_today_plan", _this.today_data)
-        .then((res) => {
-          alert("任务提交成功！");
-        });
+      // console.log(_this.result_today)
+      axios.post(_this.path_id + '/user/plan/result_today',{'result':_this.result_today})
     },
+    delete_today_plan (plan, index) {
+      const _this = this
+      _this.today_data.splice(index,1)
+      axios.post(_this.path_id + '/user/plan/add_today_plan', _this.today_data)
+      _this.task_list.push(plan)
+      axios.post(_this.path_id + '/user/plan/addTaskList',_this.task_list)
+    }
   },
   mounted() {
     const _this = this;
     _this.draw_pie("graph_pie");
     _this.draw_bar("graph_bar");
     //今日默认任务得初始化
-    for (let plan_value of _this.today_data) {
+    for (let plan_value of _this.example_data) {
       plan_value.start_time = commonF.get_today_time()[1];
       plan_value.end_time = commonF.get_today_time()[1];
       plan_value.statas = false;
@@ -422,8 +435,14 @@ export default {
         if (res.data[0].start_time === commonF.get_today_time()[1]) {
           _this.today_data = res.data;
         }
+        else{
+          _this.today_data = _this.example_data
+        }
       }
     });
+    axios.get(_this.path_id + '/user/plan/get_result_today').then((res)=>{
+      _this.result_today = res.data[res.data.length-1].result
+    })
   },
 };
 </script>

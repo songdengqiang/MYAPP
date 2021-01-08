@@ -18,10 +18,12 @@
   border-radius: 1rem;
 }
 .schedule #plan_list .ulList_ul {
+  width: 100%;
   position: relative;
   left: -2rem;
 }
 .schedule #plan_list .ulList_ul .ulList_li {
+  width: 100%;
   font-size: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -34,7 +36,14 @@
   padding-left: 1rem;
   cursor: pointer;
 }
+.schedule #plan_list .ulList_ul .ulList_li > p {
+  width: 100%;
+}
+.schedule #plan_list .ulList_ul .ulList_li .progress_bar {
+  width: 100%;
+}
 .schedule #plan_list .ulList_ul .ulList_li:nth-child(1) {
+  width: 100%;
   font-size: 2rem;
 }
 .schedule #plan_list .ulList_ul .add_img {

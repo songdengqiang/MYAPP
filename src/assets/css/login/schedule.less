@@ -16,9 +16,11 @@
         overflow: auto;
         border-radius: 1rem;
         .ulList_ul{
+            width: 100%;
             position: relative;
             left: -2rem;
             .ulList_li{
+                width: 100%;
                 font-size: 1.5rem;
                 display: flex;
                 flex-direction:column;
@@ -30,8 +32,15 @@
                     padding-left: 1rem;
                     cursor: pointer;
                 }
+                &>p{
+                    width: 100%;
+                }
+                .progress_bar{
+                    width: 100%;
+                }
             }
             .ulList_li:nth-child(1){
+                width: 100%;
                 font-size: 2rem;
             }
             .add_img{
