@@ -1,5 +1,5 @@
 <template>
-  <div class="LG_container" :style="{'background-image':`url(${img_path})`,'transition':'1.4s','transition-timing-function':'linear'}">
+  <div class="LG_container" >
       <header class="c_header">
           <nav>
               <ul>
@@ -8,7 +8,7 @@
                   <li>音乐</li>
                   <li @click="module_choose(4)">个人计划</li>
                   <li>功能模块</li>
-                  <li>项目</li>
+                  <li @click="module_choose(5)">项目</li>
               </ul>
               <ul>
                   <li id="lg_li" v-show="showR">登录</li>
@@ -97,6 +97,8 @@ export default {
                 case 4:
                      _this.$router.push({path: '/login/schedule'})
                      break;
+                case 5:
+                    _this.$router.push({path: '/Project'})
             }
         }
     },
@@ -104,15 +106,15 @@ export default {
         const _this = this;
         const pathId = _this.globelV.pathID + '/user/weathers'
         _this.times = commonF.get_today_time()[0];
-        let imgNameIndex = 1;
-        //背景图片的切换
-        setInterval(() => {
-            if(imgNameIndex>11){
-                imgNameIndex = 0;
-            }
-            _this.img_path = require(`../assets/img/im_login${imgNameIndex}.jpg`)
-            imgNameIndex++;
-        },12000),
+        // let imgNameIndex = 1;
+        // //背景图片的切换
+        // setInterval(() => {
+        //     if(imgNameIndex>11){
+        //         imgNameIndex = 0;
+        //     }
+        //     _this.img_path = require(`../assets/img/im_login${imgNameIndex}.jpg`)
+        //     imgNameIndex++;
+        // },12000),
         // 时间的刷新
         setInterval(()=>{
             _this.times = commonF.get_today_time()[0];

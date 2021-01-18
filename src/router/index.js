@@ -11,22 +11,9 @@ export default new Router({
       path: '/',
       name: 'login',
       component: () => import('@/components/login'),
-      // children: [
-      //   {
-      //     path: '/',
-      //     name: 'HomePage',
-      //     component: () => import('@/components/firstPage'),
-      //     children: [
-      //       {
-      //         path: '/',
-      //         name: 'imgInput',
-      //         component: () => import('@/components/firstPage/imgInput')
-      //       }
-      //     ]
-      //   }
-      // ]
     },
     // 指定目录（一级）
+    // home_page
     {
       path: '/HomePage',
       name: 'HomePage',
@@ -135,6 +122,7 @@ export default new Router({
         },
       ]
     },
+    // login_page
     {
       path: '/login',
       name: 'login',
@@ -149,6 +137,19 @@ export default new Router({
           path: 'colorGrid',
           name: 'colorGrid',
           component: () => import('@/components/DailyFun/colorGrid'), 
+        }
+      ]
+    },
+    // project_page
+    {
+      path: '/Project',
+      name: 'project',
+      component: () => import('@/components/Project/project'),
+      children: [
+        {
+          path: 'zbPaper',
+          name: 'zbPaper',
+          component: () => import('@/components/Project/kg_zb_paper/kg_zb_paper1')
         }
       ]
     }

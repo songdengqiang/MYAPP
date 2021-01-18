@@ -1,71 +1,48 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-.LG_container {
+.projecct_main {
   width: 100%;
   height: 100%;
+  background-color: blanchedalmond;
   background-image: url('../img/im_login0.jpg');
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-size: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
   animation-name: cg_bkg;
   animation-duration: 600s;
   animation-iteration-count: infinite;
 }
-.LG_container header {
-  position: absolute;
-  width: 100%;
-  height: 8%;
+.projecct_main .project_panel {
+  width: 70%;
+  height: 80%;
+  box-shadow: black 1px 1px 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.9;
 }
-.LG_container header .author_icon {
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: 1.75rem;
-}
-.LG_container header .setting_value {
-  width: 10rem;
-  height: 3.5rem;
-  font-size: 2rem;
-  font-family: '楷体';
-  border-radius: 1.75rem;
-  position: fixed;
-  opacity: 0;
+.projecct_main .project_panel .task_block {
+  width: 20%;
+  height: 20%;
+  margin: 1rem;
+  background-color: chocolate;
+  box-shadow: black 1px 1px 5px;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
 }
-.LG_container main {
-  position: absolute;
-  top: 8%;
-  width: 100%;
-  height: 87%;
+.projecct_main .project_panel .task_block:hover {
+  background-color: darkseagreen;
 }
-.LG_container main .mainDiv {
+.projecct_main .project_content {
   width: 100%;
   height: 100%;
-}
-.LG_container main .mainDiv #li_style {
-  padding: 2.5rem;
-}
-.LG_container main .aside_2 {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  color: red;
-}
-.LG_container footer {
-  position: absolute;
-  top: 95%;
-  width: 100%;
-  height: 5%;
-}
-.LG_container #lg_li {
-  background-color: chartreuse;
-  border-radius: 0.3rem;
-  color: black;
+  background-color: Honeydew;
+  opacity: 0.9;
 }
 @keyframes cg_bkg {
   0% {
