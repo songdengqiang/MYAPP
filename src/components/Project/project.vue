@@ -36,7 +36,7 @@ export default {
       switch (num) {
         case 0:
           _this.project_show = false
-          _this.$router.push({ path: "/Project/zbPaper" });
+          _this.$router.push({ path: "/Project/zbPaper/mainPage" });
           break;
         case 1:
           _this.$router.push({ path: "/login/colorGrid" });

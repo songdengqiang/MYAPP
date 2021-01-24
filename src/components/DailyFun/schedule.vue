@@ -398,7 +398,7 @@ export default {
     submit_today_plan() {
       const _this = this;
       // console.log(_this.result_today)
-      axios.post(_this.path_id + '/user/plan/result_today',{'result':_this.result_today})
+      axios.post(_this.path_id + '/user/plan/result_today',{'result':_this.result_today,'time':commonF.get_today_time[1]})
     },
     delete_today_plan (plan, index) {
       const _this = this

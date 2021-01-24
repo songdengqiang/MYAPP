@@ -11,6 +11,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "d3": "5.16.0",
     "echarts": "4.9.0",
     "popper.js": "^1.16.1",
     "vue": "^2.5.2",
@@ -32,7 +33,6 @@
     "chalk": "^2.0.1",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.0",
-    "d3": "^6.3.0",
     "eslint": "^4.15.0",
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^1.7.1",

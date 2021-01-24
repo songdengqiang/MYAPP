@@ -149,7 +149,34 @@ export default new Router({
         {
           path: 'zbPaper',
           name: 'zbPaper',
-          component: () => import('@/components/Project/kg_zb_paper/kg_zb_paper1')
+          component: () => import('@/components/Project/kg_zb_paper/kg_zb_paper1'),
+          children: [
+            {
+              path: 'mainPage',
+              name: 'mainPage',
+              component: () => import('@/components/Project/kg_zb_paper/kg_zb_mainPage'), 
+            },
+            {
+              path: 'kg_tabular',
+              name: 'kg_tabular',
+              component: () => import('@/components/Project/kg_zb_paper/kg_zb_tabular'), 
+            },
+            {
+              path: 'kg_NER',
+              name: 'kg_NER',
+              component: () => import('@/components/Project/kg_zb_paper/kg_zb_ner'), 
+            },
+            {
+              path: 'kg_ikg',
+              name: 'makg_ikginPage',
+              component: () => import('@/components/Project/kg_zb_paper/kg_zb_ikg'), 
+            },
+            {
+              path: 'kg_qa',
+              name: 'kg_qa',
+              component: () => import('@/components/Project/kg_zb_paper/kg_zb_qa'), 
+            },
+          ]
         }
       ]
     }

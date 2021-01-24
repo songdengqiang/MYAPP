@@ -1,0 +1,69 @@
+.zb_kg_tabular {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.zb_kg_tabular .zb_tabular_left {
+  width: 65%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border-right: black 1px solid;
+}
+.zb_kg_tabular .zb_tabular_left .tabular_title {
+  width: 100%;
+  height: 8%;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  font-family: 'Times New Roman', Times, serif;
+}
+.zb_kg_tabular .zb_tabular_left .tabular_input {
+  position: relative;
+  width: 85%;
+  height: 8%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: black 1px dashed;
+}
+.zb_kg_tabular .zb_tabular_left .tabular_input span {
+  width: 40%;
+  height: 80%;
+  background-color: gainsboro;
+  box-shadow: black 0 0 4px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-family: '楷体';
+  font-weight: bolder;
+  cursor: pointer;
+}
+.zb_kg_tabular .zb_tabular_left .tabular_input p {
+  width: 50%;
+  height: 80%;
+  padding-left: 3rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1.5rem;
+  font-family: '楷体';
+  font-weight: bolder;
+}
+.zb_kg_tabular .zb_tabular_left .dis_document {
+  width: 95%;
+  height: 80%;
+  margin: auto;
+  box-shadow: black 0 0 3px;
+}
+.zb_kg_tabular .zb_tabular_right {
+  width: 35%;
+  height: 100%;
+}

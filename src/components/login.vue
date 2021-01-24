@@ -78,7 +78,6 @@ export default {
             display:true,
             weathers: '🌤',
             showR: false,
-            img_path: require('../assets/img/im_login0.jpg'),
             author_icon: require('../assets/img/im_login11.jpg')
         }
     },
@@ -106,16 +105,6 @@ export default {
         const _this = this;
         const pathId = _this.globelV.pathID + '/user/weathers'
         _this.times = commonF.get_today_time()[0];
-        // let imgNameIndex = 1;
-        // //背景图片的切换
-        // setInterval(() => {
-        //     if(imgNameIndex>11){
-        //         imgNameIndex = 0;
-        //     }
-        //     _this.img_path = require(`../assets/img/im_login${imgNameIndex}.jpg`)
-        //     imgNameIndex++;
-        // },12000),
-        // 时间的刷新
         setInterval(()=>{
             _this.times = commonF.get_today_time()[0];
         },1000)
