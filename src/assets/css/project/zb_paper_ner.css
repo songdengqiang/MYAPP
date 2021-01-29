@@ -1,0 +1,12 @@
+.zb_kg_ner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.zb_kg_ner .zb_kg_nerC {
+  width: 100%;
+  height: 100%;
+}

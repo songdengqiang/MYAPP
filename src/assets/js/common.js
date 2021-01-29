@@ -17,6 +17,18 @@ const commonF = {
   // 随机产生介于min和max之间的数字
   getRndInteger: (min, max) => {
     return Math.floor(Math.random() * (max - min) ) + min;
+  },
+  //获取input上传文件得路径
+  getobjurl: (file) => {
+    let url = null
+    if (window.createObjectURL !== undefined) {
+      url = window.createObjectURL(file)
+    } else if (window.URL !== undefined) {
+      url = window.URL.createObjectURL(file)
+    } else if (window.webkitURL !== undefined) {
+      url = window.webkitURL.createObjectURL(file)
+    }
+    return url
   }
 }
 

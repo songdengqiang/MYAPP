@@ -6,6 +6,7 @@ import router from './router'
 import globelV from './assets/varible/globleV'
 import echarts from 'echarts'
 import * as d3 from 'd3'
+import comF from './assets/js/common'
 
 // 配置d3的attr属性和style属性，使其可以使用对象形式的数据
 let oldAttr = d3.selection.prototype.attr;
@@ -39,6 +40,7 @@ d3.selection.prototype.style = function () {
   }
 };
 Vue.prototype.$d3 = d3
+Vue.prototype.$comF = comF
 
 Vue.prototype.$echarts = echarts
 Vue.prototype.globelV = globelV
