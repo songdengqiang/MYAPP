@@ -97,5 +97,5 @@ export default {
 
 <style scoped>
 @import url("../../../assets/css/common/button.css");
-@import url("../../../assets/css/project/zb_papar_tabular.css");
+@import url("../../../assets/css/zb_system/zb_papar_tabular.css");
 </style>

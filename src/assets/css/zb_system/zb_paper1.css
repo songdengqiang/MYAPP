@@ -257,8 +257,10 @@
 }
 .zb_paper_sys .zb_main_css {
   width: 100vw;
-  height: 91%;
-  margin-top: 1%;
+  height: 93.5%;
+  margin-top: 0.2%;
+  opacity: 1;
+  background-color: #daf4ed;
 }
 .zb_paper_sys .zb_main_css .zb_main_left {
   margin-left: 0.5%;

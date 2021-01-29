@@ -453,5 +453,5 @@ export default {
 @import url("../../assets/css/common/fontColor.css");
 @import url("../../assets/css/common/ulList.css");
 @import url("../../assets/css/common/data_input.css");
-@import url("../../assets/css/login/schedule.css");
+@import url("../../assets/css/home_pageC/schedule.css");
 </style>

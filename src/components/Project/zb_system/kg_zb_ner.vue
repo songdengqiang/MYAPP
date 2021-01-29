@@ -1,5 +1,6 @@
 <template>
   <div class="zb_kg_ner">
+    这是ner页面
     <embed src="http://127.0.0.1:5000/" class="zb_kg_nerC">
   </div>
 </template>
@@ -11,6 +12,6 @@ export default {
 </script>
 
 <style scoped>
-@import url('../../../assets/css/project/zb_paper_ner.css');
+@import url('../../../assets/css/zb_system/zb_paper_ner.css');
 
 </style>

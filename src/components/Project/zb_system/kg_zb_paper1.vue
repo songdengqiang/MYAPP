@@ -119,22 +119,22 @@ export default {
       switch (num) {
         case 0:
           _this.$emit("GetKey", 1);
-          _this.$router.push({ path: "/Project" });
+          _this.$router.push({ path: "/home_page" });
           break
         case 1:
-          _this.$router.push({path:"/Project/zbPaper/kg_tabular"})
+          _this.$router.push({path:"/zb_system/kg_tabular"})
           break
         case 2:
-          _this.$router.push({path:'/Project/zbPaper/kg_NER'})
+          _this.$router.push({path:'/zb_system/kg_NER'})
           break
         case 3:
-          _this.$router.push({path:'/Project/zbPaper/kg_ikg'})
+          _this.$router.push({path:'/zb_system/kg_ikg'})
           break
         case 4:
-          _this.$router.push({path:'/Project/zbPaper/kg_qa'})
+          _this.$router.push({path:'/zb_system/kg_qa'})
           break
         case 5:
-          _this.$router.push({path:'/Project/zbPaper/mainPage'})
+          _this.$router.push({path:'/zb_system/mainPage'})
           break
       }
     },
@@ -143,7 +143,7 @@ export default {
 </script>
 
 <style scoped>
-@import url("../../../assets/css/project/zb_paper1.css");
+@import url('../../../assets/css/zb_system/zb_paper1.css');
 @import url("../../../assets/css/common/decoration.css");
 @import url("../../../assets/css/common/decoration1.css");
 

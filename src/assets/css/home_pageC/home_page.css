@@ -5,7 +5,7 @@
 .LG_container {
   width: 100%;
   height: 100%;
-  background-image: url('../img/im_login0.jpg');
+  background-image: url('../../img/im_login0.jpg');
   background-repeat: no-repeat;
   background-size: 100%;
   display: flex;
@@ -69,36 +69,36 @@
 }
 @keyframes cg_bkg {
   0% {
-    background-image: url('../img/im_login0.jpg');
+    background-image: url('../../img/im_login0.jpg');
   }
   10% {
-    background-image: url('../img/im_login1.jpg');
+    background-image: url('../../img/im_login1.jpg');
   }
   20% {
-    background-image: url('../img/im_login2.jpg');
+    background-image: url('../../img/im_login2.jpg');
   }
   30% {
-    background-image: url('../img/im_login3.jpg');
+    background-image: url('../../img/im_login3.jpg');
   }
   40% {
-    background-image: url('../img/im_login4.jpg');
+    background-image: url('../../img/im_login4.jpg');
   }
   50% {
-    background-image: url('../img/im_login5.jpg');
+    background-image: url('../../img/im_login5.jpg');
   }
   60% {
-    background-image: url('../img/im_login6.jpg');
+    background-image: url('../../img/im_login6.jpg');
   }
   70% {
-    background-image: url('../img/im_login7.jpg');
+    background-image: url('../../img/im_login7.jpg');
   }
   80% {
-    background-image: url('../img/im_login8.jpg');
+    background-image: url('../../img/im_login8.jpg');
   }
   90% {
-    background-image: url('../img/im_login9.jpg');
+    background-image: url('../../img/im_login9.jpg');
   }
   100% {
-    background-image: url('../img/im_login10.jpg');
+    background-image: url('../../img/im_login10.jpg');
   }
 }
