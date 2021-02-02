@@ -143,3 +143,14 @@
   width: 99%;
   height: 48%;
 }
+.zb_kg_tabular .zb_tabular_right .control_result .table_img_content table {
+  width: 100%;
+  height: 100%;
+  border: black 1px solid;
+}
+.zb_kg_tabular .zb_tabular_right .control_result .table_img_content table td {
+  border-bottom: black 1px solid;
+}
+.zb_kg_tabular .zb_tabular_right .control_result .table_img_content table th {
+  border-bottom: black 1px solid;
+}

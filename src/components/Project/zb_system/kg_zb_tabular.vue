@@ -16,81 +16,127 @@
         <button class="btn_pro_green" @click="Display()">文件预览</button>
       </div>
       <div class="dis_document">
-        <embed src='' id="review" style="width: 100%; height: 100%" />
+        <embed src="" id="review" style="width: 100%; height: 100%" />
       </div>
     </div>
     <div class="zb_tabular_right">
       <div class="control_btn">
-        <div class="btn_pro_green">PDF文件处理</div>
-        <div class="btn_pro_green">结果输出</div>
+        <div class="btn_pro_green" @click="pdfDeal()">PDF文件处理</div>
+        <div class="btn_pro_green" @click="pdfresult()">结果输出</div>
       </div>
-      <div class="control_process">{{fileDeal}}</div>
+      <div class="control_process">{{ fileDeal }}</div>
       <div class="control_result">
         <div class="table_img">
-          <img :src=x.path alt="表格图片" v-for=" x in imgData" :key="x.id" class="table_imgs" @click="tabular(x.path)">
+          <img
+            :src="x.path"
+            alt="表格图片"
+            v-for="x in imgData"
+            :key="x.id"
+            class="table_imgs"
+            @click="tabular()"
+          />
         </div>
-        <div class="table_img_content">表格图片内容识别</div>
+        <div class="table_img_content">
+          <table>
+            <tr>
+              <th>使用条件</th>
+              <th>f</th>
+            </tr>
+            <tr>
+              <td>一般运动</td>
+              <td>1.2-1.5</td>
+            </tr>
+            <tr>
+              <td>高速运动</td>
+              <td>0.8-1.0</td>
+            </tr>
+            <tr>
+              <td>低速运动运动</td>
+              <td>1.6-1.8</td>
+            </tr>
+          </table>
+        </div>
       </div>
-      
     </div>
   </div>
 </template>
 
 <script>
-import Axios from 'axios';
+import Axios from "axios";
 export default {
   name: "kg_zb_tabular",
   data() {
     return {
       pdfFile: null,
       inputFile: "尚未选择文件",
-      fileDeal: '无文件可处理',
+      fileDeal: "无文件可处理",
+      path: this.globelV.pathID + "/user/project/zbSystem",
+      pdfPath: "",
       imgData: [
-        {path:'http://127.0.0.1:8888/images/gNviE8PEWQPpsOKC1LYggcOJ.jpg'},
-        {path:'http://127.0.0.1:8888/img/power1.jpg'},
-        {path:'http://127.0.0.1:8888/img/power2.jpg'},
-        {path:'http://127.0.0.1:8888/img/power3.jpg'},
-        {path:'http://127.0.0.1:8888/img/power4.jpg'},
-        {path:require('../../../../static/table_img/table6.png')},
-        {path:require('../../../../static/table_img/table7.png')}
-      ]
+        { path: require("../../../../static/table_img/table1.png") },
+        { path: require("../../../../static/table_img/table2.png") },
+        { path: require("../../../../static/table_img/table3.png") },
+      ],
     };
   },
   methods: {
     updata(evnet) {
       const _this = this;
       // _this.$d3.select('#review').remove()
-       _this.pdfFile = document.getElementById("btn_input_file").files[0];
+      _this.pdfFile = document.getElementById("btn_input_file").files[0];
       _this.inputFile = _this.pdfFile.name;
     },
-    submit () {
+    submit() {
       const _this = this;
-      let pdfform = new FormData()
-      pdfform.append('file',_this.pdfFile)
-      const config = {headers:{'Content-Type':'multipart/form-data'}}
-      const pathId = _this.globelV.pathID + '/user/project/pdfsubmit'
-      Axios.post(pathId,pdfform,config).then((res)=>{
-        console.log(res.data)
-      }).catch((err)=>{
-        console.log(err)
-      })
+      let pdfform = new FormData();
+      pdfform.append("file", _this.pdfFile);
+      const config = { headers: { "Content-Type": "multipart/form-data" } };
+      Axios.post(_this.path + "/pdfsubmit", pdfform, config)
+        .then((res) => {
+          _this.pdfPath = res.data.file[0].path;
+          _this.fileDeal = _this.pdfPath + '文件待处理！'
+          alert('上传成功！')
+        })
+        .catch((err) => {
+          console.log(err);
+        }); //pdf上传
     },
-    Display () {
+    Display() {
       const _this = this;
-      _this.$d3.select('#review').remove()
+      _this.$d3.select("#review").remove();
       const windowURL = window.URL || window.webkitURL;
       if (_this.pdfFile) {
-        console.log(_this.pdfFile)
+        console.log(_this.pdfFile);
         const dataURl = windowURL.createObjectURL(_this.pdfFile);
-        console.log(dataURl)
-        _this.$d3.select('.dis_document').append('embed').attr({'src':dataURl,'id':'review'}).style({'width':'100%','height':'100%'})
+        console.log(dataURl);
+        _this.$d3
+          .select(".dis_document")
+          .append("embed")
+          .attr({ src: dataURl, id: "review" })
+          .style({ width: "100%", height: "100%" });
       }
     },
-    tabular () {
+    tabular() {
       const _this = this
-      let img = document.getElementById('dddddd').files[0]
-      _this.imgData[0].path = _this.$comF.getobjurl(img)
+      _this.$d3.select('.table_img_content').style('opacity','1')
     },
+    pdfDeal(){
+      const _this = this
+      Axios.post(_this.path + '/pdfDeal',{path:`./${_this.pdfPath}`}).then((res)=>{
+        if(res.data === '成功'){
+          _this.fileDeal = '文件处理成功！'
+        }
+      })
+    },
+    pdfresult(){
+      const _this = this
+      _this.$d3.select('.table_img').style('opacity','1')
+    }
+  },
+  mounted(){
+    const _this = this
+    _this.$d3.select('.table_img').style('opacity','0')
+    _this.$d3.select('.table_img_content').style('opacity','0')
   }
 };
 </script>

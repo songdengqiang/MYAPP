@@ -7,6 +7,97 @@
   align-items: center;
 }
 .zb_kg_ner .zb_kg_nerC {
-  width: 100%;
+  width: 90%;
+  height: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+.zb_kg_ner .zb_kg_nerC .btn1 {
+  width: 20%;
+  height: 40%;
+  margin: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1.3rem;
+}
+.zb_kg_ner .zb_kg_nerM {
+  width: 98%;
+  height: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.zb_kg_ner .zb_kg_nerM .left_mainPanel {
+  width: 35%;
   height: 100%;
+  border-radius: 2rem;
+  border: black 1px dashed;
+  margin-right: 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.zb_kg_ner .zb_kg_nerM .center_mainPanel {
+  width: 35%;
+  height: 100%;
+  border-radius: 2rem;
+  border: black 1px dashed;
+  margin-right: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.zb_kg_ner .zb_kg_nerM .center_mainPanel .center_mainPanel1 {
+  width: 99%;
+  height: 49%;
+  border-bottom: black 1px solid;
+}
+.zb_kg_ner .zb_kg_nerM .center_mainPanel .center_mainPanel2 {
+  width: 99%;
+  height: 49%;
+}
+.zb_kg_ner .zb_kg_nerM .right_mainPanel {
+  width: 35%;
+  height: 100%;
+  border-radius: 2rem;
+  border: black 1px dashed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.zb_kg_ner .zb_kg_nerM .right_mainPanel .top_right_mainPanel {
+  width: 99%;
+  height: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.zb_kg_ner .zb_kg_nerM .right_mainPanel .top_right_mainPanel h2 {
+  font-family: '楷体';
+}
+.zb_kg_ner .zb_kg_nerM .right_mainPanel .top_right_mainPanel .right_mainPanel_input {
+  width: 95%;
+  height: 30%;
+  border: none;
+  border-radius: 1rem;
+  box-shadow: black 0 0 5px;
+}
+.zb_kg_ner .zb_kg_nerM .right_mainPanel .bottom_right_mainPanel {
+  width: 95%;
+  height: 80%;
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  box-shadow: black 0 0 5px;
 }

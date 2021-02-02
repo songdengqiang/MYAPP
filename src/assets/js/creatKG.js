@@ -3,51 +3,12 @@ export default class creatGraph {
   // 默认自变量
   constructor(container) {
     this.nodes = [{
-        id: "机床1",
-        color: "red",
-        type: 'device',
-        attr: {
-          name: '11'
-        }
-      },
-      {
-        id: "机床2",
-        color: "green",
-        type: 'device',
-        attr: {
-          name: '11'
-        }
-      }
-    ]
-    this.links = [{
-        source: '节点1',
-        target: '节点2',
-        value: 1,
-        relation: '关系1',
-        color: 'black'
-      },
-      {
-        source: '节点1',
-        target: '节点2',
-        value: 1,
-        relation: '关系2',
-        color: 'black'
-      },
-      {
-        source: '节点1',
-        target: '节点2',
-        value: 1,
-        relation: '关系3',
-        color: 'black'
-      },
-      {
-        source: '节点1',
-        target: '节点2',
-        value: 1,
-        relation: '关系4',
-        color: 'black'
-      }
-    ]
+      id: 0,
+      color: "red",
+      labels: ['person'],
+      name: '机床1'
+    }]
+    this.links = []
     this.container = `.${container}`
     this.svgWidth = 400
     this.svgHeight = 400
@@ -66,17 +27,32 @@ export default class creatGraph {
     // 连线箭头的设置
     dragSvg.append('marker')
       .attr('id', 'direction1')
-      .attr('refX', 39) // 设置箭头离端点的距离
-      .attr('refY', -2)
+      .attr('refX', 33) // 设置箭头离端点的距离
+      .attr('refY', 6)
       .attr('orient', 'auto')
-      .attr('stroke-width', 1)
-      .attr('markerWidth', 6) // 设置箭头的大小
-      .attr('markerHeight', 6) // 设置箭头的大小，长宽统一则不变形
+      .attr('stroke-width', 2)
+      .attr('markerWidth', 8) // 设置箭头的大小
+      .attr('markerHeight', 8) // 设置箭头的大小，长宽统一则不变形
       .attr('markerUnits', 'strokeWidth')
       .attr('markerUnits', 'userSpaceOnUse')
-      .attr('viewBox', '0 -4 11 9')
+      .attr('viewBox', '0 0 12 12')
       .append('path')
-      .attr('d', 'M -19 -10 L 20 0 L -45 20')
+      .attr('d', 'M2,2 L2,11 L10,6 L2,2')
+      .attr('fill', 'black')
+      .attr('stroke-opacity', 0.9)
+    dragSvg.append('marker')
+      .attr('id', 'direction2')
+      .attr('refX', 25) // 设置箭头离端点的距离
+      .attr('refY', 7)
+      .attr('orient', 'auto')
+      .attr('stroke-width', 2)
+      .attr('markerWidth', 10) // 设置箭头的大小
+      .attr('markerHeight', 10) // 设置箭头的大小，长宽统一则不变形
+      .attr('markerUnits', 'strokeWidth')
+      .attr('markerUnits', 'userSpaceOnUse')
+      .attr('viewBox', '0 0 12 12')
+      .append('path')
+      .attr('d', 'M-5,4 L2,12 L10,8 L-5,4')
       .attr('fill', 'black')
       .attr('stroke-opacity', 0.9)
     // 设置图形的总容器
@@ -85,12 +61,18 @@ export default class creatGraph {
     const graphLink = g.append('g').attr('class', 'linKG')
       .attr('stroke-opacity', 0.5)
       .attr('fill', 'none')
-      .attr('marker-end', 'url(#direction1)')
       .selectAll('path')
       .data(this.links)
       .join('path')
       .attr('stroke', 'black')
-      .attr('stroke-width', 1)
+      .attr('marker-end', function(d){
+        if(d.doubles === 0){
+          return 'url(#direction1)'
+        }else {
+          return 'url(#direction2)'
+        }
+      })
+      .attr('stroke-width', 0.8)
       .attr('class', d => `link_${d.relation}`) // 线的类型
       .attr('id', d => d.source.id + '_' + d.target.id + '_' + d.relation) // 线的唯一标识
       .call(this.drag(simulations))
@@ -103,8 +85,25 @@ export default class creatGraph {
       .attr('r', 15)
       .attr('stroke', 'black')
       .attr('stroke-width', 2)
+      .on('mouseover', function (d, i) {
+        d3.select(this)
+          .attr('r', 20)
+          .attr('stroke', 'grey')
+          .attr('stroke-width', 8)
+      })
+      .on('mouseout', function (d, i) {
+        d3.select(this)
+          .attr('r', 15)
+          .attr('stroke', 'black')
+          .attr('stroke-width', 2)
+      })
       .attr('fill', function (d) {
-        return d.color
+        if (d.color) {
+          return d.color
+        } else {
+          return 'greenyellow'
+        }
+
       })
       .attr('class', function (d) {
         return d.id
@@ -112,7 +111,7 @@ export default class creatGraph {
       .call(this.drag(simulations))
 
     // 设置节点的title信息
-    graphNode.append('title').style('width', 19).text(d => `${d.id}-${d.type}`)
+    graphNode.append('title').style('width', 19).text(d => `${d.name}`)
 
     const nodeName = g.append('g').attr('class', `nodeName_${this.container}`)
       .selectAll('text')
@@ -129,12 +128,12 @@ export default class creatGraph {
       .attr('text-anchor', 'middle')
       .attr('class', 'node_name')
       .text(function (d) {
-        return d.id
+        return d.name
       })
       .call(this.drag(simulations))
 
     g.append('g').selectAll('text').data(this.links).join('text')
-      .attr('dy', 0)
+      .attr('dy', -1)
       .style('fill', 'black')
       .style('opacity', '1')
       .attr('class', 'linkText')
@@ -147,7 +146,7 @@ export default class creatGraph {
         return d.relation
       })
 
-    simulations.on('tick', () => {
+      simulations.on('tick', () => {
       graphNode
         .attr('cx', d => d.x)
         .attr('cy', d => d.y)
@@ -158,81 +157,82 @@ export default class creatGraph {
         .attr('y', d => d.y)
     })
   }
-
-  // 设置初始数据
-  addData(data) {
-    this.nodes = data.nodes
-    this.links = data.links
-  }
-
   // 图形的更新--当数据变化后需要进行图形的重新绘制
-  updataGraphs() {
+  updataGraphs(data) {
+    this.nodes = []
+    this.links = []
+    for(let i of data.links){
+      this.links.push(i)
+    }
+    for(let j of data.nodes){
+      this.nodes.push(j)
+    }
     d3.select(this.container).select('svg').remove()
     this.drawGraph(this.svgName)
   }
 
   // 数据的处理
   dealData(links) {
-    let count = 0
+    let num = 0
     if (links.length > 0) {
       for (const value of links) {
-        for (let i = count; i < this.links.length; i++) {
+        let count = 0
+        for (let i = num; i < this.links.length; i++) {
           if (value.source === this.links[i].source && value.target === this.links[i].target) {
             count++
-            break
           }
         }
-        // console.log(count)
         switch (count) {
-          case 0:
-            this.links[this.links.indexOf(value)].doubles = 2
-            break
           case 1:
-            this.links[this.links.indexOf(value)].doubles = -2
+            this.links[links.indexOf(value)].doubles = 0
             break
+          // case 1:
+          //   this.links[this.links.indexOf(value)].doubles = -2
+          //   break
           case 2:
             this.links[this.links.indexOf(value)].doubles = 1
             break
+          // case 3:
+          //   this.links[this.links.indexOf(value)].doubles = -1
+          //   break
           case 3:
-            this.links[this.links.indexOf(value)].doubles = -1
+            this.links[this.links.indexOf(value)].doubles = 0.67
             break
+          // case 5:
+          //   this.links[this.links.indexOf(value)].doubles = -0.7
+          //   break
           case 4:
-            this.links[this.links.indexOf(value)].doubles = 0.7
-            break
-          case 5:
-            this.links[this.links.indexOf(value)].doubles = -0.7
-            break
-          case 6:
             this.links[this.links.indexOf(value)].doubles = 0.6
             break
-          case 7:
-            this.links[this.links.indexOf(value)].doubles = -0.6
-            break
-          case 8:
+          // case 7:
+          //   this.links[this.links.indexOf(value)].doubles = -0.6
+          //   break
+          case 5:
             this.links[this.links.indexOf(value)].doubles = 0.54
             break
-          case 9:
-            this.links[this.links.indexOf(value)].doubles = -0.54
-            break
-          case 10:
+          // case 9:
+          //   this.links[this.links.indexOf(value)].doubles = -0.54
+          //   break
+          case 6:
             this.links[this.links.indexOf(value)].doubles = 0.51
             break
-          case 11:
-            this.links[this.links.indexOf(value)].doubles = -0.51
-            break
-          case 12:
+          // case 11:
+          //   this.links[this.links.indexOf(value)].doubles = -0.51
+          //   break
+          case 7:
             this.links[this.links.indexOf(value)].doubles = 0.505
             break
-          case 13:
-            this.links[this.links.indexOf(value)].doubles = -0.505
-            break
-          case 14:
+          // case 13:
+          //   this.links[this.links.indexOf(value)].doubles = -0.505
+          //   break
+          case 8:
             this.links[this.links.indexOf(value)].doubles = 0.50
             break
-          case 15:
-            this.links[this.links.indexOf(value)].doubles = -0.50
-            break
+          // case 15:
+          //   this.links[this.links.indexOf(value)].doubles = -0.50
+          //   break
         }
+        num++
       }
     }
 
@@ -242,7 +242,7 @@ export default class creatGraph {
   simulation(nodes, links) {
     const simu = d3.forceSimulation(nodes)
       .force('collision', d3.forceCollide(35))
-      .force('link', d3.forceLink(links).id(d => d.id).distance(100))
+      .force('link', d3.forceLink(links).id(d => d.id).distance(110))
       .force('charge', d3.forceManyBody().strength(-30))
       .force('x', d3.forceX())
       .force('y', d3.forceY())
@@ -291,17 +291,18 @@ export default class creatGraph {
 
   // 绘制曲线的连线
   linkArc(d) {
-    const r = d.doubles * Math.hypot(d.target.x - d.source.x, d.target.y - d.source.y)
-    if (d.doubles > 0) {
+    // console.log(d.doubles)
+    if(d.doubles === 0){
       return `
             M${d.target.x},${d.target.y}
-            A${r},${r} 0 0,1 ${d.source.x},${d.source.y}
+            L${d.source.x},${d.source.y}
         `
-    } else {
-      return `
-            M${d.source.x},${d.source.y}
-            A${r},${r} 0 0,1 ${d.target.x},${d.target.y}
-        `
+    }else{
+      const r = d.doubles * Math.hypot(d.target.x - d.source.x, d.target.y - d.source.y)
+        return `
+              M${d.target.x},${d.target.y}
+              A${r},${r} 0 0,1 ${d.source.x},${d.source.y}
+          `
     }
   }
 }
