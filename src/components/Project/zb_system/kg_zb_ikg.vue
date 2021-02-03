@@ -535,12 +535,14 @@ export default {
     _this.displayKg(_this.myKG1);
     _this.myBar1 = new drawBar("myBar1");
     _this.myBar1.initTitle("实体相似度统计图");
+    _this.myBar1.setLegend()
     _this.myBar1.initlegend(["类别1", "类别2"]);
     _this.myBar1.initxdata(["实体1", "实体2", "实体3", "实体4"]);
     _this.myBar1.initseries({ name: "类别1", data: [23, 11, 22, 31] });
     _this.myBar1.drawBar();
     _this.myBar2 = new drawBar("myBar2");
     _this.myBar2.initTitle("属性相似度统计图");
+    _this.myBar2.setLegend()
     _this.myBar2.initlegend(["领域1", "领域2"]);
     _this.myBar2.initxdata(["d1", "d2", "f3", "fs"]);
     _this.myBar2.initseries({ name: "领域2", data: [43, 21, 43, 21] });

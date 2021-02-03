@@ -518,12 +518,15 @@ export default {
     _this.displayKg();
     _this.myBar1 = new drawBar("myBar1");
     _this.myBar1.initTitle("实体统计图");
+    _this.myBar1.setLegend()
     _this.myBar1.initlegend(["领域1", "领域2"]);
     _this.myBar1.initxdata(["d1", "d2", "f3", "fs"]);
     _this.myBar1.initseries({ name: "领域1", data: [43, 21, 43, 21] });
+    _this.myBar1.addSeries({name: "领域2", data: [13, 21, 43, 21]})
     _this.myBar1.drawBar();
     _this.myBar2 = new drawBar("myBar2");
     _this.myBar2.initTitle("属性统计图");
+    _this.myBar2.setLegend()
     _this.myBar2.initlegend(["领域1", "领域2"]);
     _this.myBar2.initxdata(["d1", "d2", "f3", "fs"]);
     _this.myBar2.initseries({ name: "领域2", data: [43, 21, 43, 21] });

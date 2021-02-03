@@ -122,8 +122,12 @@
   display: flex;
   margin: auto;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   border-radius: 1rem;
   box-shadow: black 0 0 5px;
+}
+.zb_kg_ner .zb_kg_nerM .right_mainPanel .bottom_right_mainPanel h2 {
+  font-family: '楷体';
+  font-size: 1.5rem;
 }
