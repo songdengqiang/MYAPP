@@ -73,9 +73,9 @@
             <div
               class="list_input_btn"
               title="查询一个实体及其具有的关系实体"
-              @click="search_entity()"
+              @click="addSomEntity()"
             >
-              查询
+              导入
             </div>
           </li>
         </ul>
@@ -129,7 +129,7 @@
               title="导入多组知识"
               @click="addSomeKg()"
             >
-              <input type="file" style="width: 0; height: 0" id="kgJson" />
+              <input type="file" style="width: 0; height: 0" id="kgJson" accept=".json"/>
               导入
             </div>
           </li>
@@ -219,6 +219,7 @@ export default {
       kg_footer: "",
       kg_relation: "",
       display_input: false,
+      display_input_num: 1,
       relation_list: [{ name: "", type: "", attr: {} }],
       myKG11: {
         nodes: [{ id: 0, color: "red", labels: ["person"], name: "机床1" }],
@@ -305,31 +306,39 @@ export default {
         }
       }
     }, // 删除实体
-    search_entity() {
+    // search_entity() {
+    //   const _this = this;
+    //   if (_this.entity_name !== "") {
+    //     for (let i of _this.myKG11.nodes) {
+    //       if (
+    //         _this.entity_labels === i.labels[0] &&
+    //         _this.entity_name === i.name
+    //       ) {
+    //         _this.search_myKG11.nodes.push(i);
+    //       }
+    //     }
+    //     for (let j of _this.myKG11.links) {
+    //       if (_this.entity_name === j.source.id) {
+    //         _this.search_myKG11.links.push(j);
+    //         for (let k of _this.myKG11.nodes) {
+    //           if (j.target.id === k.id) {
+    //             _this.search_myKG11.nodes.push(k);
+    //             break;
+    //           }
+    //         }
+    //       }
+    //     }
+    //     _this.myKG1.updataGraphs(_this.search_myKG11);
+    //   }
+    // }, // 查询实体
+    addSomEntity() {
       const _this = this;
-      if (_this.entity_name !== "") {
-        for (let i of _this.myKG11.nodes) {
-          if (
-            _this.entity_labels === i.labels[0] &&
-            _this.entity_name === i.name
-          ) {
-            _this.search_myKG11.nodes.push(i);
-          }
-        }
-        for (let j of _this.myKG11.links) {
-          if (_this.entity_name === j.source.id) {
-            _this.search_myKG11.links.push(j);
-            for (let k of _this.myKG11.nodes) {
-              if (j.target.id === k.id) {
-                _this.search_myKG11.nodes.push(k);
-                break;
-              }
-            }
-          }
-        }
-        _this.myKG1.updataGraphs(_this.search_myKG11);
-      }
-    }, // 查询实体
+      _this.display_input = true;
+      _this.entityNum = 0;
+      _this.newEntityNum = 0;
+      _this.kgNum = 0;
+      _this.display_input_num = 0;
+    },
     addOneKg() {
       const _this = this;
       if (
@@ -386,116 +395,128 @@ export default {
       _this.entityNum = 0;
       _this.newEntityNum = 0;
       _this.kgNum = 0;
+      _this.display_input_num = 1;
     }, //添加多组知识数据
     chooseFile() {
       const _this = this;
       document.getElementById("kgJson").click();
     },
     submitKgE() {
-      const _this = this;
-      let kgJson = document.getElementById("kgJson").files[0];
-      let render = new FileReader(); //新建一个文件读取器
-      render.readAsText(kgJson, "UTF-8"); //将读取的内容转化为文本
-      render.onload = function (event) {
-        let result = JSON.parse(event.target.result); //读取文件内容
-        _this.kgNum = result.length;
-        let entityLists = [];
-        let newEntityList = [];
-        _this.kgList = [];
-        for (let i of result) {
-          let repead3 = 0;
-          // console.log(_this.myKG11.links)
-          for (let o of _this.myKG11.links) {
-            if (
-              i.header === o.target.name &&
-              i.footer === o.source.name &&
-              i.relation === o.relation
-            ) {
-              repead3 = 1;
-              break;
-            }
-          }
-          if (!repead3) {
-            let kgObj = {};
-            kgObj.head = i.header;
-            kgObj.foot = i.footer;
-            kgObj.relation = i.relation;
-            _this.kgList.push(kgObj);
-          }
-          let repead1 = 0;
-          let repead2 = 0;
-          for (let j of _this.myKG11.nodes) {
-            if (i.header === j.name) {
-              entityLists.push(j);
-              repead1 = 1;
-              break;
-            }
-          }
-          for (let k of _this.myKG11.nodes) {
-            if (i.footer === k.name) {
-              entityLists.push(k);
-              repead2 = 1;
-              break;
-            }
-          }
-          if (!repead1) {
-            if (newEntityList.length > 0) {
-              let num = 0;
-              for (let n of newEntityList) {
-                if (i.header === n.name) {
-                  num = 1;
-                  break;
-                }
+      if ((_this.display_input_num = 0)) {
+        const _this = this;
+        let kgJson = document.getElementById("kgJson").files[0];
+        let render = new FileReader(); //新建一个文件读取器
+        render.readAsText(kgJson, "UTF-8"); //将读取的内容转化为文本
+        render.onload = function(event){
+          let result = JSON.parse(event.target.result); //读取文件内容
+          console.log(result)
+        }
+      } else {
+        const _this = this;
+        let kgJson = document.getElementById("kgJson").files[0];
+        let render = new FileReader(); //新建一个文件读取器
+        render.readAsText(kgJson, "UTF-8"); //将读取的内容转化为文本
+        render.onload = function (event) {
+          let result = JSON.parse(event.target.result); //读取文件内容
+          _this.kgNum = result.length;
+          let entityLists = [];
+          let newEntityList = [];
+          _this.kgList = [];
+          for (let i of result) {
+            let repead3 = 0;
+            // console.log(_this.myKG11.links)
+            for (let o of _this.myKG11.links) {
+              if (
+                i.header === o.target.name &&
+                i.footer === o.source.name &&
+                i.relation === o.relation
+              ) {
+                repead3 = 1;
+                break;
               }
-              if (!num) {
+            }
+            if (!repead3) {
+              let kgObj = {};
+              kgObj.head = i.header;
+              kgObj.foot = i.footer;
+              kgObj.relation = i.relation;
+              _this.kgList.push(kgObj);
+            }
+            let repead1 = 0;
+            let repead2 = 0;
+            for (let j of _this.myKG11.nodes) {
+              if (i.header === j.name) {
+                entityLists.push(j);
+                repead1 = 1;
+                break;
+              }
+            }
+            for (let k of _this.myKG11.nodes) {
+              if (i.footer === k.name) {
+                entityLists.push(k);
+                repead2 = 1;
+                break;
+              }
+            }
+            if (!repead1) {
+              if (newEntityList.length > 0) {
+                let num = 0;
+                for (let n of newEntityList) {
+                  if (i.header === n.name) {
+                    num = 1;
+                    break;
+                  }
+                }
+                if (!num) {
+                  let obj = {};
+                  obj.name = i.header;
+                  obj.labels = "common";
+                  newEntityList.push(obj);
+                  entityLists.push(obj);
+                }
+              } else {
                 let obj = {};
                 obj.name = i.header;
                 obj.labels = "common";
                 newEntityList.push(obj);
                 entityLists.push(obj);
               }
-            } else {
-              let obj = {};
-              obj.name = i.header;
-              obj.labels = "common";
-              newEntityList.push(obj);
-              entityLists.push(obj);
             }
-          }
-          if (!repead2) {
-            if (newEntityList.length > 0) {
-              let num = 0;
-              for (let n of newEntityList) {
-                if (i.footer === n.name) {
-                  num = 1;
-                  break;
+            if (!repead2) {
+              if (newEntityList.length > 0) {
+                let num = 0;
+                for (let n of newEntityList) {
+                  if (i.footer === n.name) {
+                    num = 1;
+                    break;
+                  }
                 }
-              }
-              if (!num) {
+                if (!num) {
+                  let obj = {};
+                  obj.name = i.footer;
+                  obj.labels = "common";
+                  newEntityList.push(obj);
+                  entityLists.push(obj);
+                }
+              } else {
                 let obj = {};
                 obj.name = i.footer;
                 obj.labels = "common";
                 newEntityList.push(obj);
                 entityLists.push(obj);
               }
-            } else {
-              let obj = {};
-              obj.name = i.footer;
-              obj.labels = "common";
-              newEntityList.push(obj);
-              entityLists.push(obj);
             }
-          }
-        } //数据的处理
-        _this.newEntityNum = newEntityList.length;
-        _this.entityNum = entityLists.length;
-        axios.post(_this.path + "/addManyKg1", newEntityList).then((res) => {
-          if (res.data === "成功") {
-            alert(res.data);
-            _this.$d3.select(".btn11").style("curser", "none");
-          }
-        });
-      };
+          } //数据的处理
+          _this.newEntityNum = newEntityList.length;
+          _this.entityNum = entityLists.length;
+          axios.post(_this.path + "/addManyKg1", newEntityList).then((res) => {
+            if (res.data === "成功") {
+              alert(res.data);
+              _this.$d3.select(".btn11").style("curser", "none");
+            }
+          });
+        };
+      }
     },
     submitKgR() {
       const _this = this;
@@ -518,15 +539,15 @@ export default {
     _this.displayKg();
     _this.myBar1 = new drawBar("myBar1");
     _this.myBar1.initTitle("实体统计图");
-    _this.myBar1.setLegend()
+    _this.myBar1.setLegend();
     _this.myBar1.initlegend(["领域1", "领域2"]);
     _this.myBar1.initxdata(["d1", "d2", "f3", "fs"]);
     _this.myBar1.initseries({ name: "领域1", data: [43, 21, 43, 21] });
-    _this.myBar1.addSeries({name: "领域2", data: [13, 21, 43, 21]})
+    _this.myBar1.addSeries({ name: "领域2", data: [13, 21, 43, 21] });
     _this.myBar1.drawBar();
     _this.myBar2 = new drawBar("myBar2");
     _this.myBar2.initTitle("属性统计图");
-    _this.myBar2.setLegend()
+    _this.myBar2.setLegend();
     _this.myBar2.initlegend(["领域1", "领域2"]);
     _this.myBar2.initxdata(["d1", "d2", "f3", "fs"]);
     _this.myBar2.initseries({ name: "领域2", data: [43, 21, 43, 21] });

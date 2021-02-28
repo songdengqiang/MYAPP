@@ -1,0 +1,27 @@
+[
+    {
+        "entity_name":"爸爸",
+        "entity_labels":"家人",
+        "entity_color": "red"
+    },
+    {
+        "entity_name":"妈妈",
+        "entity_labels":"家人",
+        "entity_color": "green"
+    },
+    {
+        "entity_name":"爷爷",
+        "entity_labels":"家人",
+        "entity_color": "yellow"
+    },
+    {
+        "entity_name":"奶奶",
+        "entity_labels":"家人",
+        "entity_color": "blue"
+    },
+    {
+        "entity_name":"幺宝",
+        "entity_labels":"家人",
+        "entity_color": "orange"
+    },
+]
