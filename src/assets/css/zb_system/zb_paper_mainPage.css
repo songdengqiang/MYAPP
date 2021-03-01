@@ -130,6 +130,10 @@
   align-items: center;
   justify-content: center;
 }
+.zb_papar_mainPage .zb_main_right .zb_main_right_bar .dropdown-menu-right {
+  height: 120px;
+  overflow: auto;
+}
 .zb_papar_mainPage .zb_main_right .zb_main_right_pie {
   margin-top: 1.5%;
   width: 100%;

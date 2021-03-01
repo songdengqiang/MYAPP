@@ -22,8 +22,8 @@
     <div class="zb_tabular_right">
       <div class="control_btn">
         <div class="btn_pro_green" @click="pdfDeal()">PDF文件处理</div>
-        <div class="btn_pro_green" @click="pdfextract()">PDF表格提取</div>
-        <div class="btn_pro_green" @click="pdfresult()">表格内容识别</div>
+        <div class="btn_pro_green" @click="pdfextract1()">PDF表格识别</div>
+        <div class="btn_pro_green" @click="pdfextract()">表格提取</div>
       </div>
       <div class="control_process">{{ fileDeal }}</div>
       <div class="control_result">
@@ -119,7 +119,7 @@ export default {
       _this.loading = true
       Axios.post(_this.path + "/pdfDeal", { path: `./${_this.pdfPath}` }).then(
         (res) => {
-          // console.log(res.data)
+          console.log(res.data)
           if (res.data.title === "成功") {
             _this.fileDeal = "文件处理成功！";
             _this.loading = false

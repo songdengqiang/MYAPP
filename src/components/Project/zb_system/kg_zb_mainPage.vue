@@ -27,14 +27,26 @@
       <div class="zb_main_right_bar">
         <ul class="list_input">
           <li class="list_input_li">
-            <h3>实体类型：</h3>
+            <h3>实体类：</h3>
             <input
               type="text"
+              id="district"
               class="list_input_value"
               v-model="entity_labels"
               autocomplete="value"
               placeholder="value"
             />
+            <div class="dropdown">
+              <button
+                type="button"
+                class="btn dropdown-toggle"
+                data-toggle="dropdown"
+              >
+              </button>
+              <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" id='dropdownitem' href="#" v-for="x in kgEnTyList" :key="x.id" :title="x" @click="sendValue(x,'type')">{{x}}</a>
+              </div>
+            </div>
           </li>
           <li class="list_input_li">
             <h3>实体名：</h3>
@@ -44,6 +56,17 @@
               v-model="entity_name"
               placeholder="value"
             />
+            <div class="dropdown">
+              <button
+                type="button"
+                class="btn dropdown-toggle"
+                data-toggle="dropdown"
+              >
+              </button>
+              <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" id='dropdownitem' href="#" v-for="x in myKG11.nodes" :key="x.id" :title="x.name" @click="sendValue(x.name,'name')">{{x.name}}</a>
+              </div>
+            </div>
           </li>
           <li class="list_input_li">
             <h3>实体属性：</h3>
@@ -129,7 +152,12 @@
               title="导入多组知识"
               @click="addSomeKg()"
             >
-              <input type="file" style="width: 0; height: 0" id="kgJson" accept=".json"/>
+              <input
+                type="file"
+                style="width: 0; height: 0"
+                id="kgJson"
+                accept=".json"
+              />
               导入
             </div>
           </li>
@@ -229,8 +257,9 @@ export default {
         nodes: [],
         links: [],
       },
-      //知识组
-      kgList: [],
+      //知识组变量
+      kgEnTyList: [],
+      kgReTyList: [],
     };
   },
   methods: {
@@ -378,6 +407,20 @@ export default {
         });
       }
     }, //删除一组知识
+    sendValue(x,y){
+      const _this = this
+      switch(y){
+        case 'name':
+          _this.entity_name = x
+          break
+          case 'type':
+          _this.entity_labels =x
+          break
+      }
+    },//数据选择地传递
+    dealKgData() {
+      
+    }, //处理知识图数据，获取独立地知识节点类型
     displayKg() {
       const _this = this;
       axios.get(_this.path + "/getAllEntity").then((res) => {
@@ -407,10 +450,10 @@ export default {
         let kgJson = document.getElementById("kgJson").files[0];
         let render = new FileReader(); //新建一个文件读取器
         render.readAsText(kgJson, "UTF-8"); //将读取的内容转化为文本
-        render.onload = function(event){
+        render.onload = function (event) {
           let result = JSON.parse(event.target.result); //读取文件内容
-          console.log(result)
-        }
+          console.log(result);
+        };
       } else {
         const _this = this;
         let kgJson = document.getElementById("kgJson").files[0];
