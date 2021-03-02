@@ -419,6 +419,7 @@ export default {
         render.onload = function (event) {
           let a = event.target.result.replace(/\([^\)]*\)/g, "");
           const dataList = a.split(/[(\r\n)\r\n]+/); //以换行符进行分割
+          const singleE = []
           for (let i of dataList) {
             i = i.replace(/^\s+|\s+$/g, ""); // 去除两端的空格
             if (i !== "") {
@@ -433,11 +434,17 @@ export default {
               const kgE = {}
               kgE.name = splitD[0]
               kgE.labels = _this.entity_labels
-              _this.kgEnL.push(kgE)
+              if(singleE.indexOf(splitD[0]) ===-1){
+                singleE.push(splitD[0])
+                _this.kgEnL.push(kgE)
+              }
               const kgE1 = {}
               kgE1.name = splitD[0]
               kgE1.labels = _this.entity_labels
-              _this.kgEnL.push(kgE1)
+              if(singleE.indexOf(splitD[1]) ===-1){
+                singleE.push(splitD[1])
+                _this.kgEnL.push(kgE1)
+              }
             }
           }
           _this.entityNum = 0

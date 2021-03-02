@@ -244,8 +244,8 @@ export default class creatGraph {
       .force('collision', d3.forceCollide(35))
       .force('link', d3.forceLink(links).id(d => d.id).distance(110))
       .force('charge', d3.forceManyBody().strength(-30))
-      .force('x', d3.forceX())
-      .force('y', d3.forceY())
+      // .force('x', d3.forceX())
+      // .force('y', d3.forceY())
       .force('center', d3.forceCenter(this.svgWidth / 2, this.svgHeight / 2))
     return simu
   }
