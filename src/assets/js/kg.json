@@ -1,27 +1,27 @@
 [
     {
-        "header":"fsfs",
-        "footer":"zdfddfdfdf",
+        "head":"fsfs",
+        "foot":"zdfddfdfdf",
         "relation": "ceshi"
     },
     {
-        "header":"fsfs",
-        "footer":"zdfsadfdf",
+        "head":"fsfs",
+        "foot":"zdfsadfdf",
         "relation": "ceshi"
     },
     {
-        "header":"fsfs",
-        "footer":"tredfdf",
+        "head":"fsfs",
+        "foot":"tredfdf",
         "relation": "ceshi"
     },
     {
-        "header":"小红",
-        "footer":"tredfdf",
+        "head":"小红",
+        "foot":"tredfdf",
         "relation": "ceshi"
     },
     {
-        "header":"fsfs",
-        "footer":"eyuyf",
+        "head":"fsfs",
+        "foot":"eyuyf",
         "relation": "ceshi"
     }
 ]

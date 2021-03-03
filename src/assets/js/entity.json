@@ -1,27 +1,32 @@
 [
     {
-        "entity_name":"爸爸",
-        "entity_labels":"家人",
-        "entity_color": "red"
+        "name":"爸爸",
+        "labels":"家人",
+        "color": "red",
+        "age": 43
     },
     {
-        "entity_name":"妈妈",
-        "entity_labels":"家人",
-        "entity_color": "green"
+        "name":"妈妈",
+        "labels":"家人",
+        "color": "green",
+        "age": 43
     },
     {
-        "entity_name":"爷爷",
-        "entity_labels":"家人",
-        "entity_color": "yellow"
+        "name":"爷爷",
+        "labels":"家人",
+        "color": "yellow",
+        "age": 43
     },
     {
-        "entity_name":"奶奶",
-        "entity_labels":"家人",
-        "entity_color": "blue"
+        "name":"奶奶",
+        "labels":"家人",
+        "color": "blue",
+        "age": 43
     },
     {
-        "entity_name":"幺宝",
-        "entity_labels":"家人",
-        "entity_color": "orange"
-    },
+        "name":"幺宝",
+        "labels":"家人",
+        "color": "orange",
+        "age": 43
+    }
 ]
