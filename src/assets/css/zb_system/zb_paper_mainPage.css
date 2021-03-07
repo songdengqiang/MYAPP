@@ -98,6 +98,100 @@
   width: 100%;
   height: 92%;
 }
+.zb_papar_mainPage .zb_main_center .settingWindow {
+  position: fixed;
+  width: 40%;
+  height: 40%;
+  border: black 1px solid;
+  background-color: #daf4ed;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 8px;
+}
+.zb_papar_mainPage .zb_main_center .settingWindow .settingHeader {
+  width: 98%;
+  height: 10%;
+  border-bottom: black 1px solid;
+  display: flex;
+  flex-direction: row;
+}
+.zb_papar_mainPage .zb_main_center .settingWindow .settingHeader h3 {
+  margin-right: auto;
+  font-family: '楷体';
+}
+.zb_papar_mainPage .zb_main_center .settingWindow .settingBody {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_left {
+  width: 20%;
+  height: 96%;
+  display: flex;
+  flex-direction: column;
+  border-right: black 2px dashed;
+  align-items: center;
+  overflow: auto;
+}
+.zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_left .list-group {
+  width: 90%;
+  height: 100%;
+}
+.zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_left .list-group .list-group-item-info {
+  font-family: '楷体';
+  font-size: 1.3rem;
+  font-weight: bolder;
+  margin: auto;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+.zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_left .list-group .list-group-item-info:hover {
+  background-color: greenyellow;
+}
+.zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_left::-webkit-scrollbar {
+  width: 0;
+}
+.zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_right {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_right .rightPanel {
+  width: 98%;
+  height: 98%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+  font-family: '楷体';
+  font-size: 1.2rem;
+  font-weight: bolder;
+}
+.zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_right .rightPanel::-webkit-scrollbar {
+  width: 0;
+}
+.zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_right .Panel1 h4 {
+  width: 90%;
+  font-family: '楷体';
+  font-size: 1.4rem;
+  font-weight: bolder;
+  border-bottom: black 1px solid;
+}
+.zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_right .Panel1 form {
+  width: 90%;
+  height: 100%;
+}
+.zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_right .Panel1 form .form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
 .zb_papar_mainPage .zb_main_right {
   padding: 0;
   width: 20%;
