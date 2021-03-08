@@ -64,11 +64,13 @@
         font-weight: bolder;
       }
 
-      .btn_pro_green {
-        width: 15%;
-        height: 50%;
+      .btn-outline-info {
+        width: 20%;
+        // height: 50%;
         margin: auto;
         font-family: 'Times New Roman', '楷体';
+        font-size: 1.3rem;
+        font-weight: bolder;
       }
     }
 
@@ -101,13 +103,16 @@
       justify-content: center;
       align-items: center;
 
-      .btn_pro_green {
+      .btn-outline-info {
         width: 30%;
-        height: 50%;
+        height: 100%;
         margin: auto;
+        font-family: 'Times New Roman', '楷体';
+        font-size: 1.3rem;
+        font-weight: bolder;
         display: flex;
-        justify-content: center;
         align-items: center;
+        justify-content: center;
       }
     }
 
@@ -136,7 +141,7 @@
         width: 50px;
         height: 50px;
         position: absolute;
-        top:10%;
+        top: 10%;
         // background-color: chartreuse;
         margin: 0 auto;
         margin-top: 100px;
@@ -148,7 +153,7 @@
           border-radius: 50%;
           background: black;
           position: absolute;
-          -webkit-animation: load 1.04s ease infinite;
+          animation: load 1.04s ease infinite;
         }
 
         @-webkit-keyframes load {
@@ -239,19 +244,51 @@
       .table_img_content {
         width: 99%;
         height: 48%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-        table {
+        .imgList {
           width: 100%;
-          height: 100%;
-          border: black 1px solid;
+          height: 15%;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-end;
 
-          td {
-            border-bottom: black 1px solid;
+          img {
+            height: 100%;
+            margin-right: 10px;
+            cursor: pointer;
           }
 
-          th {
-            border-bottom: black 1px solid;
+          .btn-outline-info {
+            width: 15%;
+            height: 80%;
+            margin-right: 10px;
+            font-family: 'Times New Roman', '楷体';
+            font-size: 1.3rem;
+            font-weight: bolder;
+            display: flex;
+            align-items: center;
+            justify-content: center;
           }
+        }
+
+        .textlist {
+          width: 100%;
+          height: 85%;
+          border: black 1px dashed;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: flex-start;
+          justify-content: flex-start;
+          overflow: auto;
+
+        }
+
+        .textlist::-webkit-scrollbar {
+          width: 0;
         }
       }
     }

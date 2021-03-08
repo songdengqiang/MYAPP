@@ -406,7 +406,17 @@
           </div>
         </div>
         <div class="inputFile2">
-          <ul>
+          <ul> 
+            <li>
+              <span>实体类别：</span>
+              <input type="text" v-model="entity_labels">
+              <!-- <h3>{{ entity_labels }}</h3> -->
+            </li>
+             <li>
+              <span>类别属性：</span>
+              <input type="text" v-model="entity_attr">
+              <!-- <h3>{{ entity_labels }}</h3> -->
+            </li>
             <li>
               <span>知识数：</span>
               <h3>{{ kgNum }}</h3>
