@@ -37,26 +37,39 @@
           <div class="settingBody_left">
             <ul class="list-group">
               <li
-                class="list-group-item list-group-item-info"
+                class="list-group-item list-group-item-info li li1"
+                style="background-color: greenYellow"
                 @click="panelClick(1)"
               >
                 连线设置
               </li>
               <li
-                class="list-group-item list-group-item-info"
+                class="list-group-item list-group-item-info li li2"
                 @click="panelClick(2)"
+              >
+                节点属性修改
+              </li>
+              <li
+                class="list-group-item list-group-item-info li li3"
+                @click="panelClick(3)"
               >
                 节点标题设置
               </li>
               <li
-                class="list-group-item list-group-item-info"
-                @click="panelClick(3)"
+                class="list-group-item list-group-item-info li li4"
+                @click="panelClick(4)"
               >
                 节点颜色设置
               </li>
               <li
-                class="list-group-item list-group-item-info"
-                @click="panelClick(4)"
+                class="list-group-item list-group-item-info li li5"
+                @click="panelClick(5)"
+              >
+                图形仿真力的设置
+              </li>
+              <li
+                class="list-group-item list-group-item-info li li5"
+                @click="panelClick(5)"
               >
                 图形仿真力的设置
               </li>
@@ -87,7 +100,88 @@
               </form>
               <hr />
             </div>
-            <div class="rightPanel Panel1" v-show="Panel2">
+            <div class="rightPanel Panel1 Panel2" v-show="Panel2">
+              <h4>节点属性修改</h4>
+              <div class="filterB">
+                <div class="dropdown">
+                  <button
+                    class="btn btn-outline-info dropdown-toggle"
+                    data-toggle="dropdown"
+                  >
+                    标签-{{ labelName }}
+                  </button>
+                  <div class="dropdown-menu">
+                    <a
+                      v-for="x in kgEnTyList"
+                      :key="x.id"
+                      class="dropdown-item"
+                      @click="filterB1(x, 1)"
+                      >{{ x }}</a
+                    >
+                  </div>
+                </div>
+                <div class="dropdown">
+                  <button
+                    class="btn btn-outline-info dropdown-toggle"
+                    data-toggle="dropdown"
+                  >
+                    实体颜色-{{ entityColor }}
+                  </button>
+                  <div class="dropdown-menu">
+                    <a
+                      v-for="x1 in colorList"
+                      :key="x1.id"
+                      @click="filterB1(x1, 2)"
+                      class="dropdown-item"
+                      >{{ x1 }}</a
+                    >
+                  </div>
+                </div>
+                <div class="dropdown">
+                  <button
+                    class="btn btn-outline-info dropdown-toggle"
+                    data-toggle="dropdown"
+                  >
+                    实体名-{{ entityName }}
+                  </button>
+                  <div class="dropdown-menu">
+                    <a
+                      v-for="x2 in kgEnL"
+                      :key="x2.id"
+                      @click="filterB1(x2.name, 3)"
+                      class="dropdown-item"
+                      >{{ x2.name }}</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="filterC">
+                <ul class="list-group">
+                  <li class="list-group-item" v-for="x in kgEnL" :key="x.id">
+                    <span>{{ x.name }}</span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="x.labels[0]"
+                    />
+                    <input
+                      type="text"
+                      class="form-control form-control1"
+                      v-model="x.strAttr"
+                    />
+                    <img
+                      src="../../../assets/icon/add.svg"
+                      alt="修改"
+                      class="addMidfy"
+                      @click="modifyAttr(x)"
+                    />
+                  </li>
+                </ul>
+              </div>
+              <button class="btn btn-outline-success">提交修改</button>
+              <hr />
+            </div>
+            <div class="rightPanel Panel1" v-show="Panel3">
               <h4>节点标题设置</h4>
               <form>
                 <div class="form-group">
@@ -111,7 +205,7 @@
               </form>
               <hr />
             </div>
-            <div class="rightPanel Panel1" v-show="Panel3">
+            <div class="rightPanel Panel1" v-show="Panel4">
               <h4>节点颜色设置</h4>
               <form>
                 <div class="form-group">
@@ -135,7 +229,7 @@
               </form>
               <hr />
             </div>
-            <div class="rightPanel Panel1" v-show="Panel4">
+            <div class="rightPanel Panel1" v-show="Panel5">
               <h4>图形仿真力的设置</h4>
               <form>
                 <div class="form-group">
@@ -384,9 +478,7 @@
           </button>
           <button class="btn btn-outline-secondary">批量删除关系</button>
           <button class="btn btn-outline-secondary">批量删除实体</button>
-          <button class="btn btn-outline-secondary">实体属性修改</button>
           <button class="btn btn-outline-secondary">查询功能扩展</button>
-          <button class="btn btn-outline-secondary">实体关系修改</button>
         </div>
       </div>
       <!-- 数据的导入窗口 -->
@@ -406,15 +498,15 @@
           </div>
         </div>
         <div class="inputFile2">
-          <ul> 
+          <ul>
             <li>
               <span>实体类别：</span>
-              <input type="text" v-model="entity_labels">
+              <input type="text" v-model="entity_labels" />
               <!-- <h3>{{ entity_labels }}</h3> -->
             </li>
-             <li>
+            <li>
               <span>类别属性：</span>
-              <input type="text" v-model="entity_attr">
+              <input type="text" v-model="entity_attr" />
               <!-- <h3>{{ entity_labels }}</h3> -->
             </li>
             <li>
@@ -467,6 +559,7 @@
 import drawBar from "../../../assets/js/draw_bar_chart";
 import drawPie from "../../../assets/js/draw_pie_chart ";
 import drawKG from "../../../assets/js/creatKG";
+import * as d3 from "d3";
 import axios from "axios";
 export default {
   name: "kg_zb_mainPage",
@@ -498,9 +591,14 @@ export default {
       Panel2: false,
       Panel3: false,
       Panel4: false,
+      Panel5: false,
       display_input: false,
       settingWindow: false,
       //知识组变量
+      entityName: "All",
+      entityColor: "All",
+      labelName: "All",
+      colorList: ["red", "yellow", "blue"],
       kgEnTyList: [],
       kgReTyList: [],
       KgListss: [],
@@ -577,28 +675,62 @@ export default {
           _this.Panel2 = false;
           _this.Panel3 = false;
           _this.Panel4 = false;
+          _this.Panel5 = false;
+          d3.selectAll(".li").style("background-color", "#bee5eb");
+          d3.select(".li1").style("background-color", "greenYellow");
           break;
         case 2:
           _this.Panel1 = false;
           _this.Panel2 = true;
           _this.Panel3 = false;
           _this.Panel4 = false;
+          _this.Panel5 = false;
+          d3.selectAll(".li").style("background-color", "#bee5eb");
+          d3.select(".li2").style("background-color", "greenYellow");
           break;
         case 3:
           _this.Panel1 = false;
           _this.Panel2 = false;
           _this.Panel3 = true;
           _this.Panel4 = false;
+          _this.Panel5 = false;
+          d3.selectAll(".li").style("background-color", "#bee5eb");
+          d3.select(".li3").style("background-color", "greenYellow");
           break;
         case 4:
           _this.Panel1 = false;
           _this.Panel2 = false;
           _this.Panel3 = false;
           _this.Panel4 = true;
+          _this.Panel5 = false;
+          d3.selectAll(".li").style("background-color", "#bee5eb");
+          d3.select(".li4").style("background-color", "greenYellow");
+          break;
+        case 5:
+          _this.Panel1 = false;
+          _this.Panel2 = false;
+          _this.Panel3 = false;
+          _this.Panel4 = true;
+          _this.Panel5 = false;
+          d3.selectAll(".li").style("background-color", "#bee5eb");
+          d3.select(".li5").style("background-color", "greenYellow");
           break;
       }
     },
-
+    filterB1(name, num) {
+      const _this = this;
+      switch (num) {
+        case 1:
+          _this.labelName = name;
+          break;
+        case 2:
+          _this.entityColor = name;
+          break;
+        case 3:
+          _this.entityName = name;
+          break;
+      }
+    },
     submitKgE() {
       const _this = this;
       if (_this.display_input_num === 0) {
@@ -757,6 +889,26 @@ export default {
         if (_this.kgEnTyList.indexOf(x.labels[0]) === -1) {
           _this.kgEnTyList.push(x.labels[0]);
         }
+        let newData = {};
+        let strAttr = "";
+        Object.keys(x).forEach((key) => {
+          if (
+            key !== "vx" &&
+            key !== "vy" &&
+            key !== "x" &&
+            key !== "y" &&
+            key !== "id" &&
+            key !== "index" &&
+            key !== "labels"
+          ) {
+            strAttr = `${strAttr}${key}_${x[key]};`;
+          }
+        });
+        newData.id = x.id;
+        newData.name = x.name;
+        newData.labels = x.labels;
+        newData.strAttr = strAttr;
+        _this.kgEnL.push(newData);
       }
       for (let x of _this.myKG11.links) {
         // console.log(x)
@@ -915,6 +1067,34 @@ export default {
         }
       });
     }, //查询知识节点
+    modifyAttr(data) {
+      const _this = this
+      // console.log(data);
+      let objData = {};
+      objData.name = data.name;
+      objData.id = data.id;
+      objData.labels = [];
+      objData.labels.push(data.labels[0])
+      for(let i of _this.myKG11.nodes){
+        if(i.id === data.id){
+          objData.labels.push(i.labels[0])
+          break
+        }
+      }
+      let attrlist = data.strAttr.split(";");
+      for (let i of attrlist) {
+        if (i !== "") {
+          let attrKey = i.split("_");
+          objData[attrKey[0]] = attrKey[1];
+        }
+      } // 数据的处理
+      axios.post(_this.path +'/modifyAttr',objData).then((res)=>{
+        alert('修改成功！')
+        _this.displayKg()
+      }).catch((err)=>{
+        alert('修改失败！')
+      })
+    }, //修改节点相关属性
   },
   mounted() {
     const _this = this;

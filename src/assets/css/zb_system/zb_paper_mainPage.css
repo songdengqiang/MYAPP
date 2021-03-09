@@ -130,7 +130,7 @@
 }
 .zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_left {
   width: 20%;
-  height: 96%;
+  height: 94%;
   display: flex;
   flex-direction: column;
   border-right: black 2px dashed;
@@ -142,6 +142,7 @@
   height: 100%;
 }
 .zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_left .list-group .list-group-item-info {
+  height: 20%;
   font-family: '楷体';
   font-size: 1.3rem;
   font-weight: bolder;
@@ -163,7 +164,7 @@
 }
 .zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_right .rightPanel {
   width: 98%;
-  height: 98%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -174,6 +175,10 @@
 }
 .zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_right .rightPanel::-webkit-scrollbar {
   width: 0;
+}
+.zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_right .Panel1 {
+  width: 100%;
+  height: 100%;
 }
 .zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_right .Panel1 h4 {
   width: 90%;
@@ -191,6 +196,99 @@
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
+}
+.zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_right .Panel2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_right .Panel2 .filterB {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_right .Panel2 .filterB .dropdown {
+  width: 30%;
+  margin: auto;
+}
+.zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_right .Panel2 .filterB .dropdown .dropdown-toggle {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-family: 'Times New Roman', '楷体';
+  font-size: 1.2rem;
+}
+.zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_right .Panel2 .filterB .dropdown .dropdown-menu {
+  width: 100%;
+  height: 150px;
+  overflow: auto;
+  font-family: 'Times New Roman', '楷体';
+  font-size: 1.2rem;
+}
+.zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_right .Panel2 .filterB .dropdown .dropdown-menu::-webkit-scrollbar {
+  width: 0;
+}
+.zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_right .Panel2 .filterC {
+  width: 95%;
+  height: 63%;
+  display: flex;
+  margin-top: 1%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: black 1px dashed;
+}
+.zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_right .Panel2 .filterC .list-group {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+.zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_right .Panel2 .filterC .list-group li {
+  width: 100%;
+  height: 25%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_right .Panel2 .filterC .list-group li span {
+  width: 15%;
+  height: 100%;
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_right .Panel2 .filterC .list-group li .form-control {
+  width: 20%;
+  margin-left: 1%;
+}
+.zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_right .Panel2 .filterC .list-group li .form-control1 {
+  width: 60%;
+}
+.zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_right .Panel2 .filterC .list-group li .addMidfy {
+  margin-left: 1%;
+  width: 5%;
+  cursor: pointer;
+}
+.zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_right .Panel2 .filterC .list-group li .addMidfy:hover {
+  width: 5.5%;
+}
+.zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_right .Panel2 .filterC .list-group::-webkit-scrollbar {
+  width: 0;
+}
+.zb_papar_mainPage .zb_main_center .settingWindow .settingBody .settingBody_right .Panel2 .btn-outline-success {
+  width: 30%;
+  margin-top: 1%;
 }
 .zb_papar_mainPage .zb_main_right {
   padding: 0;
